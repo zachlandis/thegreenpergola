@@ -361,3 +361,59 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 renderFilters();
 renderProducts();
 populateProductSelect();
+/* =========================================================
+   ROTATING HERO
+========================================================= */
+(() => {
+  const slides = [...document.querySelectorAll("[data-hero-slide]")];
+  const dots = [...document.querySelectorAll("[data-hero-dot]")];
+  const label = document.querySelector("#heroCarouselLabel");
+
+  if (!slides.length) return;
+
+  let current = 0;
+  let timer = null;
+  const intervalMs = 5200;
+
+  function showHeroSlide(index) {
+    current = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === current);
+      slide.setAttribute("aria-hidden", i === current ? "false" : "true");
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === current);
+      dot.setAttribute("aria-current", i === current ? "true" : "false");
+    });
+
+    if (label) {
+      label.textContent = slides[current].dataset.label || "Featured build";
+    }
+  }
+
+  function restartHeroTimer() {
+    if (timer) window.clearInterval(timer);
+    timer = window.setInterval(() => showHeroSlide(current + 1), intervalMs);
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      showHeroSlide(Number(dot.dataset.heroDot));
+      restartHeroTimer();
+    });
+  });
+
+  slides.forEach((slide, i) => {
+    slide.addEventListener("error", () => {
+      if (i === current) showHeroSlide(current + 1);
+    }, true);
+  });
+
+  showHeroSlide(0);
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    restartHeroTimer();
+  }
+})();
