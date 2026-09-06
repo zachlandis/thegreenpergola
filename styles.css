@@ -450,3 +450,104 @@ footer{padding:48px clamp(20px,6vw,90px);display:grid;grid-template-columns:1.2f
 
 /* SEO content section */
 .seo-service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:28px}.seo-service-grid article{background:#fff;border:1px solid rgba(23,63,42,.12);border-radius:22px;padding:26px}.seo-service-grid h3{margin:0 0 10px}.seo-service-grid p{color:#687166;line-height:1.65}.seo-service-grid a{color:#174f32;font-weight:700;text-decoration:none}.service-area-copy{margin:26px 0 0;max-width:900px;color:#687166;line-height:1.7}.seo-page{max-width:1100px;margin:0 auto;padding:70px 28px}.seo-page h1{font-family:Fraunces,serif;font-size:clamp(2.8rem,7vw,5.5rem);line-height:.98;margin:.2em 0}.seo-page h2{font-family:Fraunces,serif;font-size:clamp(2rem,4vw,3.2rem)}.seo-page p,.seo-page li{font-size:1.08rem;line-height:1.75;color:#5f695f}.seo-page .lead{font-size:1.3rem;max-width:780px}.seo-page .seo-hero-image{width:100%;max-height:620px;object-fit:cover;border-radius:28px;margin:34px 0}.seo-page .seo-cta{background:#173f2a;color:#fff;border-radius:28px;padding:34px;margin-top:48px}.seo-page .seo-cta p{color:#e8eee8}.seo-page a{color:#174f32}.seo-page .seo-cta a{color:#fff}@media(max-width:760px){.seo-service-grid{grid-template-columns:1fr}}
+
+/* =========================================================
+   V13 â€” CLEAN CATALOG / SINGLE-IMAGE MODALS / QUOTE FORM
+========================================================= */
+.gallery-arrow[hidden],
+.gallery-thumbs[hidden] {
+  display: none !important;
+}
+
+.product-detail-learn[hidden] {
+  display: none !important;
+}
+
+.product-detail-learn {
+  display: inline-flex;
+  margin-top: 14px;
+  color: var(--green, #173f2a);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.product-detail-learn:hover {
+  text-decoration: underline;
+}
+
+.seo-support-links {
+  max-width: 1400px;
+  margin: -18px auto 64px;
+  padding: 0 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 18px;
+  color: #6c736b;
+  font-size: .9rem;
+}
+
+.seo-support-links span {
+  font-weight: 700;
+  color: #3d4b42;
+}
+
+.seo-support-links a {
+  color: #4c6254;
+  text-decoration: underline;
+  text-decoration-color: rgba(76, 98, 84, .35);
+  text-underline-offset: 4px;
+}
+
+.seo-support-links a:hover {
+  color: #173f2a;
+  text-decoration-color: currentColor;
+}
+
+.form-grid-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.optional {
+  font-size: .78em;
+  font-weight: 500;
+  opacity: .62;
+}
+
+.form-status {
+  min-height: 1.4em;
+  margin: 10px 0 0;
+  font-size: .9rem;
+  color: #8c3c2d;
+}
+
+#quoteSubmit:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+@media (max-width: 680px) {
+  .form-grid-two {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-support-links {
+    margin-top: -8px;
+    padding: 0 20px;
+    justify-content: flex-start;
+  }
+}
+
+
+/* Anti-spam honeypot: hidden from real visitors */
+.form-honey {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
