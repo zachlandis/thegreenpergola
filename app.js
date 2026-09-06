@@ -12,7 +12,7 @@ const products = [
     price: "From $250",
     imageClass: "planter",
     image: "images/planter-box.png",
-    imageFit: "cover",
+    imageFit: "contain",
     description: "Custom-built elevated planter boxes designed to bring your garden up to a more comfortable working height. Built from real wood and tailored to fit your space, style, and growing plans.",
     tags: ["Built to order", "Custom sizes", "Elevated"]
   },
@@ -23,7 +23,7 @@ const products = [
     price: "Quote",
     imageClass: "garden-bed",
     image: "images/raised-garden-bed.png",
-    imageFit: "cover",
+    imageFit: "contain",
     description: "Built-to-order garden beds made for years of growing. Choose the size, height, and layout that works for your space, and we’ll build a solid wood bed around the way you actually garden.",
     tags: ["Built to order", "Solid wood", "Custom sizes"]
   },
@@ -63,7 +63,7 @@ const products = [
       "images/lemonade-stand-front.jpg",
       "images/lemonade-stand-folded.jpg"
     ],
-    imageFit: "cover",
+    imageFit: "contain",
     description: "A handcrafted stand made for lemonade, markets, play, parties, and whatever else kids can dream up. Designed to pack down into two pieces for easier storage and customizable to make it your own.",
     tags: ["Folding", "Custom colors", "Built to order"]
   },
