@@ -1,9 +1,10 @@
 const siteConfig = {
-  // The quote form is built into the website. GitHub Pages cannot receive
-  // form submissions by itself, so direct sending requires a tiny form endpoint.
-  // Form submissions are sent to info@thegreenpergola.com through FormSubmit.
-  // Visitors stay on the Green Pergola website; there is no external form page.
-  quoteEndpoint: "https://formsubmit.co/ajax/info@thegreenpergola.com"
+  // Green Pergola's on-site quote form uses Web3Forms as the email delivery
+  // backend because GitHub Pages is static and cannot send email itself.
+  // Paste the Web3Forms access key for info@thegreenpergola.com below.
+  quoteEndpoint: "https://api.web3forms.com/submit",
+  web3FormsAccessKey: "193f2c54-a5e3-4716-a194-4d6ffacd7c14",
+  requestTimeoutMs: 12000
 };
 
 const products = [
@@ -345,26 +346,39 @@ document.addEventListener("keydown", (e) => {
 quoteForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  if (!siteConfig.quoteEndpoint) {
-    formStatus.textContent = "The form is ready, but the sending endpoint has not been connected yet.";
+  if (!siteConfig.web3FormsAccessKey || siteConfig.web3FormsAccessKey.includes("PASTE_YOUR")) {
+    formStatus.textContent = "This form is temporarily unavailable. Please email info@thegreenpergola.com.";
     return;
   }
 
-  const data = Object.fromEntries(new FormData(quoteForm));
+  const formData = new FormData(quoteForm);
+  const data = Object.fromEntries(formData);
+  const captchaToken = formData.get("h-captcha-response");
+
+  if (!captchaToken) {
+    formStatus.textContent = "Please complete the security check before sending your request.";
+    return;
+  }
 
   quoteSubmit.disabled = true;
   quoteSubmit.textContent = "Sending…";
   formStatus.textContent = "";
 
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), siteConfig.requestTimeoutMs);
+
   try {
     const payload = {
-      ...data,
-      _subject: `New Green Pergola quote request — ${data.product}`,
-      _replyto: data.email,
-      _template: "table",
-      _captcha: "false",
-      _honey: data._honey || "",
-      _url: "https://thegreenpergola.com/"
+      access_key: siteConfig.web3FormsAccessKey,
+      subject: `New Green Pergola quote request — ${data.product}`,
+      from_name: "Green Pergola Website",
+      name: data.name,
+      email: data.email,
+      phone: data.phone || "Not provided",
+      location: data.location || "Not provided",
+      product: data.product,
+      message: data.details,
+      "h-captcha-response": captchaToken
     };
 
     const res = await fetch(siteConfig.quoteEndpoint, {
@@ -373,23 +387,38 @@ quoteForm.addEventListener("submit", async (e) => {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      signal: controller.signal
     });
 
     const result = await res.json().catch(() => ({}));
 
-    if (!res.ok || result.success === "false" || result.success === false) {
+    if (!res.ok || result.success !== true) {
       throw new Error(result.message || `Form submission failed with status ${res.status}`);
     }
 
-    requestPreview.textContent = `Thanks, ${data.name}. Your request for ${data.product} was sent successfully. We’ll follow up at ${data.email}.`;
+    requestPreview.textContent = `Thanks, ${data.name}. Your request for ${data.product} is on its way. We’ll follow up at ${data.email}.`;
     formStep.classList.add("hidden");
     successStep.classList.remove("hidden");
     quoteForm.reset();
+
+    if (window.hcaptcha && typeof window.hcaptcha.reset === "function") {
+      window.hcaptcha.reset();
+    }
   } catch (err) {
-    console.error(err);
-    formStatus.textContent = "We couldn’t send your request. Please try again in a moment.";
+    console.error("Green Pergola quote form error:", err);
+
+    if (err.name === "AbortError") {
+      formStatus.textContent = "This is taking longer than expected. Please try again, or email info@thegreenpergola.com.";
+    } else {
+      formStatus.textContent = "We couldn’t send your request. Please try again, or email info@thegreenpergola.com.";
+    }
+
+    if (window.hcaptcha && typeof window.hcaptcha.reset === "function") {
+      window.hcaptcha.reset();
+    }
   } finally {
+    clearTimeout(timeout);
     quoteSubmit.disabled = false;
     quoteSubmit.textContent = "Send quote request";
   }
