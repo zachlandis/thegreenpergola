@@ -23,7 +23,7 @@ const products = [
     imageClass: "garden-bed",
     image: "images/raised-garden-bed.png",
     description: "Built-to-order garden beds made for years of growing. Choose the size, height, and layout that works for your space, and we’ll build a solid wood bed around the way you actually garden.",
-    tags: ["3 × 2×6 construction", "Cedar", "Custom sizes"]
+    tags: ["Built to order", "Solid wood", "Custom sizes"]
   },
   {
     id: "tote-storage",
@@ -31,21 +31,20 @@ const products = [
     category: "Storage",
     price: "Quote",
     imageClass: "storage",
-    // Add your real photo as images/tote-storage.png and uncomment the next line.
-    image: "images/tote-storage.png",
+    // Add one photo with `image`, or several with `images`.
+    image: "images/tote-storage.jpg",
     description: "Turn stacks of plastic totes into organized, easy-access storage. Each system is built around your totes and your space, whether it’s going in a garage, basement, workshop, or utility room.",
-    tags: ["Custom capacity", "Garage storage", "Built to fit"]
+    tags: ["Custom capacity", "Built to fit", "Easy access"]
   },
   {
     id: "bike-rack",
-    name: "Kids Bike Rack",
+    name: "Wood Bike Rack",
     category: "Storage",
     price: "Quote",
     imageClass: "rack",
-    // Add your real photo as images/bike-rack.png and uncomment the next line.
-    image: "images/bike-rack.png",
+    image: "images/bike-rack.jpg",
     description: "A simple, sturdy way to get bikes organized and off the floor pile. Custom-built to fit your bikes, available space, and the number of riders in your household.",
-    tags: ["Multiple sizes", "Family-friendly", "Built to order"]
+    tags: ["Built to order", "Custom capacity", "Family-friendly"]
   },
   {
     id: "lemonade-stand",
@@ -53,8 +52,13 @@ const products = [
     category: "Family",
     price: "Quote",
     imageClass: "stand",
-    description: "A handcrafted stand made for lemonade, markets, play, parties, and whatever else kids can dream up. Designed to fold for easier storage and customizable to make it your own.",
-    tags: ["Folding", "Portable", "Kid-approved"]
+    images: [
+      "images/lemonade-stand-main.jpg",
+      "images/lemonade-stand-front.jpg",
+      "images/lemonade-stand-folded.jpg"
+    ],
+    description: "A handcrafted stand made for lemonade, markets, play, parties, and whatever else kids can dream up. Designed to pack down into two pieces for easier storage and customizable to make it your own.",
+    tags: ["Folding", "Custom colors", "Built to order"]
   },
   {
     id: "seasonal-decor",
@@ -62,7 +66,7 @@ const products = [
     category: "Seasonal",
     price: "Limited runs",
     imageClass: "decor",
-    description: "Small-batch outdoor and porch pieces that make the season feel like the season.",
+    description: "Handmade wood pieces that make the seasons a little more fun. Designs change throughout the year, with custom ideas always welcome.",
     tags: ["Small batch", "Handmade", "Seasonal"]
   },
   {
@@ -71,7 +75,7 @@ const products = [
     category: "Custom",
     price: "Let’s talk",
     imageClass: "custom",
-    description: "Saw something you want? Drew something questionable on a napkin? Send it over. We’ll figure out whether it can become real.",
+    description: "Have an idea you don’t see here? That’s kind of the point. Tell us what you need, show us the space, or send us the idea you’ve been saving—we’ll figure out how to build it.",
     tags: ["One-off", "Made for your space", "Your idea"]
   }
 ];
@@ -85,7 +89,30 @@ const formStep = document.querySelector("#formStep");
 const successStep = document.querySelector("#successStep");
 const requestPreview = document.querySelector("#requestPreview");
 
+const productModal = document.querySelector("#productModal");
+const productModalImage = document.querySelector("#productModalImage");
+const productModalThumbs = document.querySelector("#productModalThumbs");
+const productModalName = document.querySelector("#productModalName");
+const productModalPrice = document.querySelector("#productModalPrice");
+const productModalDescription = document.querySelector("#productModalDescription");
+const productModalTags = document.querySelector("#productModalTags");
+const productModalQuote = document.querySelector("#productModalQuote");
+const galleryPrev = document.querySelector("#galleryPrev");
+const galleryNext = document.querySelector("#galleryNext");
+
+let activeProduct = null;
+let activeImageIndex = 0;
+
 const categories = ["All", ...new Set(products.map(p => p.category))];
+
+function getProductImages(product) {
+  if (Array.isArray(product.images) && product.images.length) return product.images;
+  return product.image ? [product.image] : [];
+}
+
+function getPrimaryImage(product) {
+  return getProductImages(product)[0] || "";
+}
 
 function renderFilters() {
   filters.innerHTML = categories.map((category, i) => `
@@ -103,17 +130,27 @@ function renderFilters() {
 
 function renderProducts(category = "All") {
   const visible = category === "All" ? products : products.filter(p => p.category === category);
-  productGrid.innerHTML = visible.map(p => `
-    <article class="product-card reveal visible">
-      <div class="product-image ${p.imageClass} ${p.image ? "photo" : ""}" role="img" aria-label="${p.name}" ${p.image ? `style="background-image:url('${p.image}')"` : ""}></div>
-      <div class="product-body">
-        <div class="product-top"><h3>${p.name}</h3><span class="price">${p.price}</span></div>
-        <p>${p.description}</p>
-        <div class="product-meta">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
-        <button class="product-link js-product-quote" data-product="${p.id}">Request this →</button>
-      </div>
-    </article>
-  `).join("");
+  productGrid.innerHTML = visible.map(p => {
+    const primaryImage = getPrimaryImage(p);
+    const imageCount = getProductImages(p).length;
+    return `
+      <article class="product-card reveal visible">
+        <button class="product-image-button js-product-open" data-product="${p.id}" aria-label="View ${p.name}">
+          <div class="product-image ${p.imageClass} ${primaryImage ? "photo" : ""}" role="img" aria-label="${p.name}" ${primaryImage ? `style="background-image:url('${primaryImage}')"` : ""}></div>
+          ${imageCount > 1 ? `<span class="photo-count">${imageCount} photos</span>` : ""}
+        </button>
+        <div class="product-body">
+          <div class="product-top"><h3>${p.name}</h3><span class="price">${p.price}</span></div>
+          <p>${p.description}</p>
+          <div class="product-meta">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
+          <div class="product-actions">
+            <button class="product-link js-product-open" data-product="${p.id}">View details →</button>
+            <button class="product-link secondary js-product-quote" data-product="${p.id}">Request this</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
 }
 
 function populateProductSelect() {
@@ -122,6 +159,7 @@ function populateProductSelect() {
 
 function openQuote(productId) {
   const product = products.find(p => p.id === productId);
+  if (productModal.open) productModal.close();
   formStep.classList.remove("hidden");
   successStep.classList.add("hidden");
   quoteForm.reset();
@@ -136,10 +174,73 @@ function closeQuote() {
   document.body.classList.remove("modal-open");
 }
 
+function setGalleryImage(index) {
+  if (!activeProduct) return;
+  const images = getProductImages(activeProduct);
+  if (!images.length) return;
+  activeImageIndex = (index + images.length) % images.length;
+  productModalImage.src = images[activeImageIndex];
+  productModalImage.alt = `${activeProduct.name} photo ${activeImageIndex + 1} of ${images.length}`;
+  productModalThumbs.querySelectorAll("button").forEach((btn, i) => {
+    btn.classList.toggle("active", i === activeImageIndex);
+    btn.setAttribute("aria-current", i === activeImageIndex ? "true" : "false");
+  });
+}
+
+function openProduct(productId) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+
+  activeProduct = product;
+  activeImageIndex = 0;
+  const images = getProductImages(product);
+
+  productModalName.textContent = product.name;
+  productModalPrice.textContent = product.price;
+  productModalDescription.textContent = product.description;
+  productModalTags.innerHTML = product.tags.map(t => `<span>${t}</span>`).join("");
+  productModalQuote.dataset.product = product.id;
+
+  const hasImages = images.length > 0;
+  productModalImage.hidden = !hasImages;
+  document.querySelector("#productModalPlaceholder").hidden = hasImages;
+
+  if (hasImages) {
+    productModalThumbs.innerHTML = images.length > 1 ? images.map((src, i) => `
+      <button class="gallery-thumb ${i === 0 ? "active" : ""}" data-index="${i}" aria-label="Show photo ${i + 1}" aria-current="${i === 0 ? "true" : "false"}">
+        <img src="${src}" alt="${product.name} thumbnail ${i + 1}">
+      </button>
+    `).join("") : "";
+    setGalleryImage(0);
+  } else {
+    productModalThumbs.innerHTML = "";
+  }
+
+  const showControls = images.length > 1;
+  galleryPrev.hidden = !showControls;
+  galleryNext.hidden = !showControls;
+  productModalThumbs.hidden = !showControls;
+
+  productModal.showModal();
+  document.body.classList.add("modal-open");
+}
+
+function closeProduct() {
+  productModal.close();
+  document.body.classList.remove("modal-open");
+}
+
 document.addEventListener("click", (e) => {
   if (e.target.closest(".js-open-quote")) openQuote();
+
   const productBtn = e.target.closest(".js-product-quote");
   if (productBtn) openQuote(productBtn.dataset.product);
+
+  const productOpen = e.target.closest(".js-product-open");
+  if (productOpen) openProduct(productOpen.dataset.product);
+
+  const thumb = e.target.closest(".gallery-thumb");
+  if (thumb) setGalleryImage(Number(thumb.dataset.index));
 });
 
 document.querySelector("#closeModal").addEventListener("click", closeQuote);
@@ -147,6 +248,21 @@ quoteModal.addEventListener("click", (e) => {
   const rect = quoteModal.getBoundingClientRect();
   const outside = e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom;
   if (outside) closeQuote();
+});
+
+document.querySelector("#closeProductModal").addEventListener("click", closeProduct);
+productModal.addEventListener("click", (e) => {
+  if (e.target === productModal) closeProduct();
+});
+
+galleryPrev.addEventListener("click", () => setGalleryImage(activeImageIndex - 1));
+galleryNext.addEventListener("click", () => setGalleryImage(activeImageIndex + 1));
+productModalQuote.addEventListener("click", () => openQuote(productModalQuote.dataset.product));
+
+document.addEventListener("keydown", (e) => {
+  if (!productModal.open || getProductImages(activeProduct || {}).length < 2) return;
+  if (e.key === "ArrowLeft") setGalleryImage(activeImageIndex - 1);
+  if (e.key === "ArrowRight") setGalleryImage(activeImageIndex + 1);
 });
 
 quoteForm.addEventListener("submit", async (e) => {
