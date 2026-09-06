@@ -45,7 +45,7 @@ const products = [
     images: [
               "images/bike-rack-blue.png",
               "images/bike-rack-black.png",
-           ]
+           ],
     description: "A simple, sturdy way to get bikes organized and off the floor pile. Custom-built to fit your bikes, available space, and the number of riders in your household.",
     tags: ["Built to order", "Custom capacity", "Family-friendly"]
   },
