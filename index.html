@@ -20,7 +20,7 @@
   <meta name="geo.placename" content="Arvada, Colorado" />
   <link rel="canonical" href="https://thegreenpergola.com/" />
 
-  <!-- Open Graph / link sharing -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Green Pergola" />
   <meta property="og:title" content="Custom Planter Boxes & Backyard Builds in Colorado | Green Pergola" />
@@ -44,7 +44,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=13" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css?v=17" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -58,7 +59,13 @@
         "url": "https://thegreenpergola.com/",
         "logo": "https://thegreenpergola.com/images/favicon.png",
         "image": "https://thegreenpergola.com/images/green-pergola-share.png",
-        "description": "Colorado maker of custom planter boxes, raised garden beds, garage storage, bike racks and one-off wood builds."
+        "description": "Colorado maker of custom planter boxes, raised garden beds, garage storage, bike racks and one-off wood builds.",
+        "sameAs": [
+          "https://www.facebook.com/thegreenpergola/",
+          "https://www.instagram.com/green_pergola",
+          "https://www.tiktok.com/@green_pergola",
+          "https://youtube.com/@the_green_pergola"
+        ]
       },
       {
         "@type": "LocalBusiness",
@@ -102,8 +109,11 @@
   }
   </script>
 </head>
+
 <body>
-  <div class="announcement">Built locally. Made to be used. Designed to look good doing it.</div>
+  <div class="announcement">
+    Built locally. Made to be used. Designed to look good doing it.
+  </div>
 
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Green Pergola home">
@@ -115,13 +125,17 @@
       />
       <span class="brand-text">Green Pergola</span>
     </a>
+
     <nav class="desktop-nav" aria-label="Primary navigation">
       <a href="#shop">Shop</a>
       <a href="#why">Why Green Pergola</a>
       <a href="#custom">Custom Builds</a>
       <a href="#about">About</a>
     </nav>
-    <button class="btn btn-small js-open-quote">Request a quote</button>
+
+    <button class="btn btn-small js-open-quote" type="button">
+      Request a quote
+    </button>
   </header>
 
   <main>
@@ -129,13 +143,22 @@
       <div class="hero-copy reveal">
         <p class="eyebrow">Backyard goods, built by hand</p>
         <h1>Make your backyard the best room in the house.</h1>
-        <p class="hero-sub">Planter boxes, raised garden beds, tote storage, bike racks, stands, seasonal pieces, and one-off builds made for real life outside.</p>
+        <p class="hero-sub">
+          Planter boxes, raised garden beds, tote storage, bike racks, stands,
+          seasonal pieces, and one-off builds made for real life outside.
+        </p>
+
         <div class="hero-actions">
           <a class="btn" href="#shop">Browse the goods</a>
-          <button class="btn btn-ghost js-open-quote">Build something custom</button>
+          <button class="btn btn-ghost js-open-quote" type="button">
+            Build something custom
+          </button>
         </div>
-        <div class="hero-proof">
-          <span>Made locally</span><span>Built to order</span><span>Real materials</span>
+
+        <div class="hero-proof" aria-label="Green Pergola benefits">
+          <span>Made locally</span>
+          <span>Built to order</span>
+          <span>Real materials</span>
         </div>
       </div>
 
@@ -143,9 +166,11 @@
         <div class="hero-slide active" data-hero-slide data-label="Planter Boxes">
           <img src="images/planter-box.png" alt="Green Pergola custom planter box" />
         </div>
+
         <div class="hero-slide" data-hero-slide data-label="Raised Garden Beds">
           <img src="images/raised-garden-bed.png" alt="Green Pergola custom raised garden bed" />
         </div>
+
         <div class="hero-slide" data-hero-slide data-label="Garage Tote Storage">
           <img src="images/tote-storage.png" alt="Green Pergola custom garage tote storage system" />
         </div>
@@ -155,6 +180,7 @@
         <div class="hero-carousel-ui">
           <div class="hero-carousel-kicker">Featured build</div>
           <div class="hero-carousel-label" id="heroCarouselLabel">Planter Boxes</div>
+
           <div class="hero-carousel-dots" aria-label="Choose featured build">
             <button class="hero-dot active" type="button" data-hero-dot="0" aria-label="Show planter boxes"></button>
             <button class="hero-dot" type="button" data-hero-dot="1" aria-label="Show raised garden beds"></button>
@@ -162,13 +188,23 @@
           </div>
         </div>
 
-        <div class="hero-badge">Hand-built<br><strong>in Colorado</strong></div>
+        <div class="hero-badge">
+          Hand-built<br>
+          <strong>in Colorado</strong>
+        </div>
       </div>
     </section>
 
     <section class="marquee" aria-label="Product categories">
       <div class="marquee-track">
-        <span>Planter boxes</span><b>✦</b><span>Raised garden beds</span><b>✦</b><span>Tote storage</span><b>✦</b><span>Bike racks</span><b>✦</b><span>Custom builds</span><b>✦</b><span>Seasonal pieces</span><b>✦</b><span>Planter boxes</span><b>✦</b><span>Raised garden beds</span>
+        <span>Planter boxes</span><b>✦</b>
+        <span>Raised garden beds</span><b>✦</b>
+        <span>Tote storage</span><b>✦</b>
+        <span>Bike racks</span><b>✦</b>
+        <span>Custom builds</span><b>✦</b>
+        <span>Seasonal pieces</span><b>✦</b>
+        <span>Planter boxes</span><b>✦</b>
+        <span>Raised garden beds</span>
       </div>
     </section>
 
@@ -178,7 +214,12 @@
           <p class="eyebrow">Shop Green Pergola</p>
           <h2>Good-looking things that earn their footprint.</h2>
         </div>
-        <p><strong>Made for your space.</strong> Everything we build can be customized. See something you like? We’ll make it work for you.</p>
+
+        <p>
+          <strong>Made for your space.</strong>
+          Everything we build can be customized. See something you like?
+          We’ll make it work for you.
+        </p>
       </div>
 
       <div class="filters reveal" id="filters" aria-label="Product filters"></div>
@@ -189,15 +230,32 @@
       <div class="feature-intro reveal">
         <p class="eyebrow light">Why Green Pergola</p>
         <h2>Not factory-perfect.<br>Better than that.</h2>
-        <p>Every piece is built to be used hard, live outside, and still look like it belongs there.</p>
+        <p>
+          Every piece is built to be used hard, live outside,
+          and still look like it belongs there.
+        </p>
       </div>
+
       <div class="feature-list">
-        <article class="feature-card reveal"><span>01</span><h3>Built for your space</h3><p>Standard sizes when they make sense. Custom dimensions when they don’t.</p></article>
-        <article class="feature-card reveal"><span>02</span><h3>No disposable junk</h3><p>Solid materials, straightforward construction, and pieces worth repairing instead of replacing.</p></article>
-        <article class="feature-card reveal"><span>03</span><h3>Made by a human</h3><p>You’re buying from the person cutting the boards, answering the message, and loading the truck.</p></article>
+        <article class="feature-card reveal">
+          <span>01</span>
+          <h3>Built for your space</h3>
+          <p>Standard sizes when they make sense. Custom dimensions when they don’t.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <span>02</span>
+          <h3>No disposable junk</h3>
+          <p>Solid materials, straightforward construction, and pieces worth repairing instead of replacing.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <span>03</span>
+          <h3>Made by a human</h3>
+          <p>You’re buying from the person cutting the boards, answering the message, and loading the truck.</p>
+        </article>
       </div>
     </section>
-
 
     <div class="seo-support-links" aria-label="More about Green Pergola products">
       <span>Learn more:</span>
@@ -211,15 +269,22 @@
         <div>
           <p class="eyebrow">Have a weird idea?</p>
           <h2>Perfect. Those are usually the fun ones.</h2>
-          <p>If it belongs in a garden, backyard, patio, garage, or somewhere between “I saw this online” and “I wish somebody made this,” send it over.</p>
-          <button class="btn js-open-quote">Start a custom build</button>
+          <p>
+            If it belongs in a garden, backyard, patio, garage,
+            or somewhere between “I saw this online” and
+            “I wish somebody made this,” send it over.
+          </p>
+          <button class="btn js-open-quote" type="button">Start a custom build</button>
         </div>
+
         <div class="custom-build-visual">
           <img
             src="images/custom-build.png"
             alt="Custom Green Pergola build"
+            loading="lazy"
             onerror="this.style.display='none'; this.parentElement.classList.add('missing-custom-image');"
           >
+
           <div class="custom-build-image-placeholder">
             <strong>Add your custom build photo</strong>
             <span>Upload it as images/custom-build.png</span>
@@ -230,90 +295,263 @@
 
     <section class="section story" id="about">
       <div class="story-number reveal">01</div>
+
       <div class="story-copy reveal">
         <p class="eyebrow">The Green Pergola story</p>
         <h2>Started in the backyard. Still very much in the backyard.</h2>
-        <p>Green Pergola grew out of the simple idea that useful outdoor stuff shouldn’t have to look cheap, and good-looking outdoor stuff shouldn’t have to be precious.</p>
-        <p>So we build things the way we want them at home: sturdy, practical, easy to live with, and just polished enough to make the neighbors ask where you got it.</p>
+
+        <p>
+          Green Pergola grew out of the simple idea that useful outdoor stuff
+          shouldn’t have to look cheap, and good-looking outdoor stuff
+          shouldn’t have to be precious.
+        </p>
+
+        <p>
+          So we build things the way we want them at home: sturdy, practical,
+          easy to live with, and just polished enough to make the neighbors
+          ask where you got it.
+        </p>
       </div>
     </section>
 
     <section class="cta reveal">
       <p class="eyebrow light">Your backyard called.</p>
       <h2>It wants an upgrade.</h2>
-      <button class="btn btn-light js-open-quote">Tell us what you need</button>
+      <button class="btn btn-light js-open-quote" type="button">
+        Tell us what you need
+      </button>
     </section>
   </main>
 
   <footer>
-    <a class="brand footer-brand" href="#top"><span class="brand-mark">GP</span><span class="brand-text">Green Pergola</span></a>
+    <a class="brand footer-brand" href="#top" aria-label="Green Pergola home">
+      <img
+        class="brand-logo"
+        src="images/favicon.png"
+        alt=""
+        aria-hidden="true"
+      />
+      <span class="brand-text">Green Pergola</span>
+    </a>
+
     <p>Built locally. Made for outside.</p>
-    <div class="footer-links"><a href="#shop">Shop</a><a href="#custom">Custom</a><a href="#about">About</a></div>
+
+    <div class="footer-links" aria-label="Footer navigation">
+      <a href="#shop">Shop</a>
+      <a href="#custom">Custom</a>
+      <a href="#about">About</a>
+    </div>
+
+    <div class="social-links" aria-label="Green Pergola social media">
+      <a
+        href="https://www.facebook.com/thegreenpergola/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Green Pergola on Facebook"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M13.5 22v-9h3l.5-3h-3.5V8.1c0-.9.3-1.6 1.7-1.6H17V3.8c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V10H7v3h3v9h3.5z"/>
+        </svg>
+      </a>
+
+      <a
+        href="https://www.instagram.com/green_pergola"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Green Pergola on Instagram"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm5.5-8.2a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2z"/>
+        </svg>
+      </a>
+
+      <a
+        href="https://www.tiktok.com/@green_pergola"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Green Pergola on TikTok"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15.5 3c.5 1.8 1.6 3 3.5 3.5v3a8.2 8.2 0 0 1-3.5-1v6.1a6.1 6.1 0 1 1-5.3-6v3.2a3 3 0 1 0 2.2 2.8V3h3.1z"/>
+        </svg>
+      </a>
+
+      <a
+        href="https://youtube.com/@the_green_pergola"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Green Pergola on YouTube"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10 15.3V8.7l5.7 3.3L10 15.3z"/>
+        </svg>
+      </a>
+    </div>
+
     <p class="fineprint">© <span id="year"></span> Green Pergola</p>
   </footer>
 
+  <!-- Product detail modal -->
   <dialog class="product-modal" id="productModal">
     <button class="modal-close product-modal-close" id="closeProductModal" aria-label="Close product details">×</button>
+
     <div class="product-detail-layout">
       <div class="product-gallery">
         <div class="gallery-stage">
           <img id="productModalImage" alt="" />
-          <div class="gallery-placeholder" id="productModalPlaceholder" hidden>Photo coming soon</div>
+          <div class="gallery-placeholder" id="productModalPlaceholder" hidden>
+            Photo coming soon
+          </div>
+
           <button class="gallery-arrow gallery-prev" id="galleryPrev" aria-label="Previous photo">‹</button>
           <button class="gallery-arrow gallery-next" id="galleryNext" aria-label="Next photo">›</button>
         </div>
+
         <div class="gallery-thumbs" id="productModalThumbs" aria-label="Product photos"></div>
       </div>
+
       <div class="product-detail-copy">
         <p class="eyebrow">Green Pergola build</p>
+
         <div class="product-detail-heading">
           <h2 id="productModalName"></h2>
           <span class="product-detail-price" id="productModalPrice"></span>
         </div>
+
         <p class="product-detail-description" id="productModalDescription"></p>
         <div class="product-meta product-detail-tags" id="productModalTags"></div>
-        <a class="product-detail-learn" id="productModalLearn" href="#" hidden>Learn more about this build →</a>
-        <p class="custom-note">Every build can be adjusted for your space, style, size, and needs.</p>
-        <button class="btn full" id="productModalQuote">Request this build</button>
+
+        <a class="product-detail-learn" id="productModalLearn" href="#" hidden>
+          Learn more about this build →
+        </a>
+
+        <p class="custom-note">
+          Every build can be adjusted for your space, style, size, and needs.
+        </p>
+
+        <button class="btn full" id="productModalQuote" type="button">
+          Request this build
+        </button>
       </div>
     </div>
   </dialog>
 
-  <div class="quote-modal-layer hidden" id="quoteModal" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+  <!-- Quote modal -->
+  <div
+    class="quote-modal-layer hidden"
+    id="quoteModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="quoteModalTitle"
+  >
     <div class="quote-modal">
-    <button class="modal-close" id="closeModal" aria-label="Close">×</button>
-    <div class="modal-step" id="formStep">
-      <p class="eyebrow">Request a quote</p>
-      <h2 id="quoteModalTitle">What are we building?</h2>
-      <form id="quoteForm">
-        <input type="checkbox" name="botcheck" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="form-grid-two">
-          <label>Name<input name="name" autocomplete="name" required placeholder="Your name"></label>
-          <label>Email<input type="email" name="email" autocomplete="email" required placeholder="you@example.com"></label>
-        </div>
-        <div class="form-grid-two">
-          <label>Phone <span class="optional">optional</span><input type="tel" name="phone" autocomplete="tel" placeholder="(303) 555-0123"></label>
-          <label>City / area <span class="optional">optional</span><input name="location" autocomplete="address-level2" placeholder="Arvada, Denver, etc."></label>
-        </div>
-        <label>Product / project<select name="product" id="quoteProduct"></select></label>
-        <label>Tell me what you have in mind<textarea name="details" rows="5" required placeholder="Size, quantity, color, inspiration, where it needs to go…"></textarea></label>
-        <div class="captcha-wrap">
-          <div class="h-captcha" data-captcha="true"></div>
-        </div>
-        <button class="btn full" id="quoteSubmit" type="submit">Send quote request</button>
-        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-        <p class="form-note">Tell us what you have in mind and we’ll get back to you as soon as we can.</p>
-      </form>
-    </div>
-    <div class="modal-step hidden" id="successStep">
-      <p class="eyebrow">Request sent</p>
-      <h2>Thanks — we’ve got it.</h2>
-      <p class="request-preview" id="requestPreview">Your quote request was sent successfully. We’ll follow up using the contact information you provided.</p>
-      <button class="btn btn-ghost full" id="startOver">Send another request</button>
-    </div>
+      <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+
+      <div class="modal-step" id="formStep">
+        <p class="eyebrow">Request a quote</p>
+        <h2 id="quoteModalTitle">What are we building?</h2>
+
+        <form id="quoteForm">
+          <input
+            type="checkbox"
+            name="botcheck"
+            class="form-honey"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          >
+
+          <div class="form-grid-two">
+            <label>
+              Name
+              <input
+                name="name"
+                autocomplete="name"
+                required
+                placeholder="Your name"
+              >
+            </label>
+
+            <label>
+              Email
+              <input
+                type="email"
+                name="email"
+                autocomplete="email"
+                required
+                placeholder="you@example.com"
+              >
+            </label>
+          </div>
+
+          <div class="form-grid-two">
+            <label>
+              Phone <span class="optional">optional</span>
+              <input
+                type="tel"
+                name="phone"
+                autocomplete="tel"
+                placeholder="(303) 555-0123"
+              >
+            </label>
+
+            <label>
+              City / area <span class="optional">optional</span>
+              <input
+                name="location"
+                autocomplete="address-level2"
+                placeholder="Arvada, Denver, etc."
+              >
+            </label>
+          </div>
+
+          <label>
+            Product / project
+            <select name="product" id="quoteProduct"></select>
+          </label>
+
+          <label>
+            Tell me what you have in mind
+            <textarea
+              name="details"
+              rows="5"
+              required
+              placeholder="Size, quantity, color, inspiration, where it needs to go…"
+            ></textarea>
+          </label>
+
+          <div class="captcha-wrap">
+            <div class="h-captcha" data-captcha="true"></div>
+          </div>
+
+          <button class="btn full" id="quoteSubmit" type="submit">
+            Send quote request
+          </button>
+
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+          <p class="form-note">
+            Tell us what you have in mind and we’ll get back to you as soon as we can.
+          </p>
+        </form>
+      </div>
+
+      <div class="modal-step hidden" id="successStep">
+        <p class="eyebrow">Request sent</p>
+        <h2>Thanks — we’ve got it.</h2>
+
+        <p class="request-preview" id="requestPreview">
+          Your quote request was sent successfully. We’ll follow up using the contact information you provided.
+        </p>
+
+        <button class="btn btn-ghost full" id="startOver" type="button">
+          Send another request
+        </button>
+      </div>
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="https://web3forms.com/client/script.js" async defer></script>
   <script src="app.js?v=16"></script>
 </body>
