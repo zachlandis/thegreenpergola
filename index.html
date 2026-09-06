@@ -274,11 +274,12 @@
     </div>
   </dialog>
 
-  <dialog class="quote-modal" id="quoteModal">
+  <div class="quote-modal-layer hidden" id="quoteModal" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+    <div class="quote-modal">
     <button class="modal-close" id="closeModal" aria-label="Close">×</button>
     <div class="modal-step" id="formStep">
       <p class="eyebrow">Request a quote</p>
-      <h2>What are we building?</h2>
+      <h2 id="quoteModalTitle">What are we building?</h2>
       <form id="quoteForm">
         <input type="checkbox" name="botcheck" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-grid-two">
@@ -305,9 +306,10 @@
       <p class="request-preview" id="requestPreview">Your quote request was sent successfully. We’ll follow up using the contact information you provided.</p>
       <button class="btn btn-ghost full" id="startOver">Send another request</button>
     </div>
-  </dialog>
+    </div>
+  </div>
 
   <script src="https://web3forms.com/client/script.js" async defer></script>
-  <script src="app.js?v=15"></script>
+  <script src="app.js?v=16"></script>
 </body>
 </html>
