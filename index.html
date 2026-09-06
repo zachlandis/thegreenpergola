@@ -69,7 +69,7 @@
           <p class="eyebrow">Shop Green Pergola</p>
           <h2>Good-looking things that earn their footprint.</h2>
         </div>
-        <p>Useful first. Beautiful second. Usually both.</p>
+        <p><strong>Made for your space.</strong> Everything we build can be customized. See something you like? We’ll make it work for you.</p>
       </div>
 
       <div class="filters reveal" id="filters" aria-label="Product filters"></div>
@@ -127,6 +127,32 @@
     <div class="footer-links"><a href="#shop">Shop</a><a href="#custom">Custom</a><a href="#about">About</a></div>
     <p class="fineprint">© <span id="year"></span> Green Pergola</p>
   </footer>
+
+  <dialog class="product-modal" id="productModal">
+    <button class="modal-close product-modal-close" id="closeProductModal" aria-label="Close product details">×</button>
+    <div class="product-detail-layout">
+      <div class="product-gallery">
+        <div class="gallery-stage">
+          <img id="productModalImage" alt="" />
+          <div class="gallery-placeholder" id="productModalPlaceholder" hidden>Photo coming soon</div>
+          <button class="gallery-arrow gallery-prev" id="galleryPrev" aria-label="Previous photo">‹</button>
+          <button class="gallery-arrow gallery-next" id="galleryNext" aria-label="Next photo">›</button>
+        </div>
+        <div class="gallery-thumbs" id="productModalThumbs" aria-label="Product photos"></div>
+      </div>
+      <div class="product-detail-copy">
+        <p class="eyebrow">Green Pergola build</p>
+        <div class="product-detail-heading">
+          <h2 id="productModalName"></h2>
+          <span class="product-detail-price" id="productModalPrice"></span>
+        </div>
+        <p class="product-detail-description" id="productModalDescription"></p>
+        <div class="product-meta product-detail-tags" id="productModalTags"></div>
+        <p class="custom-note">Every build can be adjusted for your space, style, size, and needs.</p>
+        <button class="btn full" id="productModalQuote">Request this build</button>
+      </div>
+    </div>
+  </dialog>
 
   <dialog class="quote-modal" id="quoteModal">
     <button class="modal-close" id="closeModal" aria-label="Close">×</button>
