@@ -12,7 +12,7 @@ const products = [
     price: "From $250",
     imageClass: "planter",
     image: "images/planter-box.png",
-    description: "Elevated solid-wood planter boxes built to make gardening easier and your outdoor space look better doing it.",
+    description: "Custom-built elevated planter boxes designed to bring your garden up to a more comfortable working height. Built from real wood and tailored to fit your space, style, and growing plans.",
     tags: ["Built to order", "Custom sizes", "Elevated"]
   },
   {
@@ -22,7 +22,7 @@ const products = [
     price: "Quote",
     imageClass: "garden-bed",
     image: "images/raised-garden-bed.png",
-    description: "Square cedar garden beds built from three courses of 2×6 lumber — simple, sturdy, and made for years of growing.",
+    description: "Built-to-order garden beds made for years of growing. Choose the size, height, and layout that works for your space, and we’ll build a solid wood bed around the way you actually garden.",
     tags: ["3 × 2×6 construction", "Cedar", "Custom sizes"]
   },
   {
@@ -33,18 +33,18 @@ const products = [
     imageClass: "storage",
     // Add your real photo as images/tote-storage.png and uncomment the next line.
     // image: "images/tote-storage.png",
-    description: "Purpose-built storage racks that turn stacks of plastic totes into clean, accessible organization.",
+    description: "Turn stacks of plastic totes into organized, easy-access storage. Each system is built around your totes and your space, whether it’s going in a garage, basement, workshop, or utility room.",
     tags: ["Custom capacity", "Garage storage", "Built to fit"]
   },
   {
     id: "bike-rack",
-    name: "Wood Bike Rack",
+    name: "Kids Bike Rack",
     category: "Storage",
     price: "Quote",
     imageClass: "rack",
     // Add your real photo as images/bike-rack.png and uncomment the next line.
     // image: "images/bike-rack.png",
-    description: "A clean, solid-wood way to keep bikes upright, organized, and out of the driveway pile.",
+    description: "A simple, sturdy way to get bikes organized and off the floor pile. Custom-built to fit your bikes, available space, and the number of riders in your household.",
     tags: ["Multiple sizes", "Family-friendly", "Built to order"]
   },
   {
@@ -53,7 +53,7 @@ const products = [
     category: "Family",
     price: "Quote",
     imageClass: "stand",
-    description: "Folds down, sets up fast, and makes a neighborhood lemonade operation look suspiciously professional.",
+    description: "A handcrafted stand made for lemonade, markets, play, parties, and whatever else kids can dream up. Designed to fold for easier storage and customizable to make it your own.",
     tags: ["Folding", "Portable", "Kid-approved"]
   },
   {
