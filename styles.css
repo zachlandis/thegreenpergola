@@ -200,3 +200,127 @@ footer{padding:48px clamp(20px,6vw,90px);display:grid;grid-template-columns:1.2f
   content: "Photo file not found" !important;
   display: grid !important;
 }
+
+/* =========================================================
+   ROTATING REAL-PRODUCT HERO â€” v8
+========================================================= */
+.hero-art.hero-carousel{
+  position:relative;
+  min-height:620px;
+  background:#d9ded3;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.hero-carousel .sun,
+.hero-carousel .hill,
+.hero-carousel .pergola,
+.hero-carousel .bed{
+  display:none !important;
+}
+
+.hero-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transform:scale(1.025);
+  transition:opacity .85s ease, transform 5.5s ease;
+  z-index:0;
+  pointer-events:none;
+}
+
+.hero-slide.active{
+  opacity:1;
+  transform:scale(1);
+  z-index:1;
+}
+
+.hero-slide img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+}
+
+/* Tote storage benefits from seeing more of the full build. */
+.hero-slide:nth-child(3) img{
+  object-fit:cover;
+  object-position:center;
+}
+
+.hero-carousel-overlay{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(9,25,16,.06) 35%, rgba(9,25,16,.46) 100%),
+    linear-gradient(90deg, rgba(9,25,16,.08), transparent 42%);
+}
+
+.hero-carousel-ui{
+  position:absolute;
+  left:clamp(22px,4vw,54px);
+  bottom:clamp(24px,4vw,48px);
+  z-index:4;
+  color:#fff;
+  text-shadow:0 2px 18px rgba(0,0,0,.24);
+}
+
+.hero-carousel-kicker{
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-size:11px;
+  font-weight:800;
+  opacity:.82;
+  margin-bottom:7px;
+}
+
+.hero-carousel-label{
+  font-family:"Fraunces",serif;
+  font-size:clamp(30px,3.5vw,52px);
+  line-height:.95;
+  letter-spacing:-.035em;
+  font-weight:700;
+}
+
+.hero-carousel-dots{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:18px;
+}
+
+.hero-dot{
+  width:9px;
+  height:9px;
+  padding:0;
+  border:1px solid rgba(255,255,255,.86);
+  border-radius:999px;
+  background:transparent;
+  transition:width .2s ease, background .2s ease;
+}
+
+.hero-dot.active{
+  width:30px;
+  background:#fff;
+}
+
+.hero-carousel .hero-badge{
+  z-index:5;
+}
+
+@media(max-width:900px){
+  .hero-art.hero-carousel{min-height:520px}
+}
+
+@media(max-width:620px){
+  .hero-art.hero-carousel{min-height:430px}
+  .hero-carousel-ui{left:20px;bottom:22px}
+  .hero-carousel-label{font-size:34px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-slide{transition:none;transform:none}
+}
