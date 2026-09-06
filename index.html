@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
   <div class="announcement">Built locally. Made to be used. Designed to look good doing it.</div>
@@ -110,9 +110,16 @@
           <p>If it belongs in a garden, backyard, patio, garage, or somewhere between “I saw this online” and “I wish somebody made this,” send it over.</p>
           <button class="btn js-open-quote">Start a custom build</button>
         </div>
-        <div class="sketch" aria-hidden="true">
-          <span class="sketch-line l1"></span><span class="sketch-line l2"></span><span class="sketch-line l3"></span><span class="sketch-line l4"></span>
-          <div class="sketch-note n1">your idea</div><div class="sketch-note n2">→ built for real</div>
+        <div class="custom-build-visual">
+          <img
+            src="images/custom-build.png"
+            alt="Custom Green Pergola build"
+            onerror="this.style.display='none'; this.parentElement.classList.add('missing-custom-image');"
+          >
+          <div class="custom-build-image-placeholder">
+            <strong>Add your custom build photo</strong>
+            <span>Upload it as images/custom-build.png</span>
+          </div>
         </div>
       </div>
     </section>
@@ -190,6 +197,6 @@
     </div>
   </dialog>
 
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>
