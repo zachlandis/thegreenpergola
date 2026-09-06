@@ -551,3 +551,20 @@ footer{padding:48px clamp(20px,6vw,90px);display:grid;grid-template-columns:1.2f
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+
+/* v15 â€” quote form captcha */
+.captcha-wrap {
+  margin: .15rem 0 .85rem;
+  min-height: 78px;
+}
+.captcha-wrap .h-captcha {
+  max-width: 100%;
+}
+.form-status {
+  min-height: 1.25em;
+}
+#quoteSubmit:disabled {
+  opacity: .72;
+  cursor: wait;
+}
