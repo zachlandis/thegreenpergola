@@ -231,12 +231,12 @@ function openQuote(productId) {
   }
   populateProductSelect();
   if (product) quoteProduct.value = product.name;
-  quoteModal.showModal();
+  quoteModal.classList.remove("hidden");
   document.body.classList.add("modal-open");
 }
 
 function closeQuote() {
-  quoteModal.close();
+  quoteModal.classList.add("hidden");
   document.body.classList.remove("modal-open");
 }
 
@@ -323,9 +323,7 @@ document.addEventListener("click", (e) => {
 
 document.querySelector("#closeModal").addEventListener("click", closeQuote);
 quoteModal.addEventListener("click", (e) => {
-  const rect = quoteModal.getBoundingClientRect();
-  const outside = e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom;
-  if (outside) closeQuote();
+  if (e.target === quoteModal) closeQuote();
 });
 
 document.querySelector("#closeProductModal").addEventListener("click", closeProduct);
@@ -338,6 +336,11 @@ galleryNext.addEventListener("click", () => setGalleryImage(activeImageIndex + 1
 productModalQuote.addEventListener("click", () => openQuote(productModalQuote.dataset.product));
 
 document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !quoteModal.classList.contains("hidden")) {
+    closeQuote();
+    return;
+  }
+
   if (!productModal.open || getProductImages(activeProduct || {}).length < 2) return;
   if (e.key === "ArrowLeft") setGalleryImage(activeImageIndex - 1);
   if (e.key === "ArrowRight") setGalleryImage(activeImageIndex + 1);
