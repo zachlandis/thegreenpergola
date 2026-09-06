@@ -32,7 +32,7 @@ const products = [
     price: "Quote",
     imageClass: "storage",
     // Add one photo with `image`, or several with `images`.
-    image: "images/tote-storage.jpg",
+    image: "images/tote-storage.png",
     description: "Turn stacks of plastic totes into organized, easy-access storage. Each system is built around your totes and your space, whether it’s going in a garage, basement, workshop, or utility room.",
     tags: ["Custom capacity", "Built to fit", "Easy access"]
   },
