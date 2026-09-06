@@ -32,7 +32,7 @@ const products = [
     price: "Quote",
     imageClass: "storage",
     // Add your real photo as images/tote-storage.png and uncomment the next line.
-    // image: "images/tote-storage.png",
+    image: "images/tote-storage.png",
     description: "Turn stacks of plastic totes into organized, easy-access storage. Each system is built around your totes and your space, whether it’s going in a garage, basement, workshop, or utility room.",
     tags: ["Custom capacity", "Garage storage", "Built to fit"]
   },
@@ -43,7 +43,7 @@ const products = [
     price: "Quote",
     imageClass: "rack",
     // Add your real photo as images/bike-rack.png and uncomment the next line.
-    // image: "images/bike-rack.png",
+    image: "images/bike-rack.png",
     description: "A simple, sturdy way to get bikes organized and off the floor pile. Custom-built to fit your bikes, available space, and the number of riders in your household.",
     tags: ["Multiple sizes", "Family-friendly", "Built to order"]
   },
