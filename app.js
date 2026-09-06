@@ -42,7 +42,7 @@ const products = [
     category: "Storage",
     price: "Quote",
     imageClass: "rack",
-    image: [
+    images: [
               "images/bike-rack-blue.png",
               "images/bike-rack-black.png",
            ]
