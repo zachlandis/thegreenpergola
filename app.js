@@ -62,23 +62,10 @@ const products = [
     category: "Family",
     price: "Quote",
     imageClass: "stand",
-    images: [
-      "images/lemonade-stand-main.jpg",
-      "images/lemonade-stand-front.jpg",
-      "images/lemonade-stand-folded.jpg"
-    ],
+    image: "images/lemonade-stand-main.jpg",
     imageFit: "cover",
     description: "A handcrafted stand made for lemonade, markets, play, parties, and whatever else kids can dream up. Designed to pack down into two pieces for easier storage and customizable to make it your own.",
     tags: ["Folding", "Custom colors", "Built to order"]
-  },
-  {
-    id: "seasonal-decor",
-    name: "Seasonal Wood Décor",
-    category: "Seasonal",
-    price: "Limited runs",
-    imageClass: "decor",
-    description: "Handmade wood pieces that make the seasons a little more fun. Designs change throughout the year, with custom ideas always welcome.",
-    tags: ["Small batch", "Handmade", "Seasonal"]
   },
   {
     id: "custom-build",
