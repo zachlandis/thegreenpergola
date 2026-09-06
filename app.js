@@ -38,11 +38,14 @@ const products = [
   },
   {
     id: "bike-rack",
-    name: "Wood Bike Rack",
+    name: "Kid's Bike Rack",
     category: "Storage",
     price: "Quote",
     imageClass: "rack",
-    image: "images/bike-rack.jpg",
+    image: [
+              "images/bike-rack-blue.png",
+              "images/bike-rack-black.png",
+           ]
     description: "A simple, sturdy way to get bikes organized and off the floor pile. Custom-built to fit your bikes, available space, and the number of riders in your household.",
     tags: ["Built to order", "Custom capacity", "Family-friendly"]
   },
