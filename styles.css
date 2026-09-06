@@ -1409,3 +1409,19 @@ canvas {
     }
   }
 }
+
+@media (max-width: 620px) {
+  .social-links {
+    gap: 10px;
+  }
+
+  .social-links a {
+    width: 34px;
+    height: 34px;
+  }
+
+  .social-links svg {
+    width: 16px;
+    height: 16px;
+  }
+}
