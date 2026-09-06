@@ -12,7 +12,7 @@ const products = [
     id: "planter-box",
     name: "Planter Boxes",
     category: "Garden",
-    price: "From $250",
+    price: "Quote",
     imageClass: "planter",
     image: "images/planter-box.png",
     imageFit: "cover",
