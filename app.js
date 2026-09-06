@@ -12,6 +12,7 @@ const products = [
     price: "From $250",
     imageClass: "planter",
     image: "images/planter-box.png",
+    imageFit: "cover",
     description: "Custom-built elevated planter boxes designed to bring your garden up to a more comfortable working height. Built from real wood and tailored to fit your space, style, and growing plans.",
     tags: ["Built to order", "Custom sizes", "Elevated"]
   },
@@ -22,6 +23,7 @@ const products = [
     price: "Quote",
     imageClass: "garden-bed",
     image: "images/raised-garden-bed.png",
+    imageFit: "cover",
     description: "Built-to-order garden beds made for years of growing. Choose the size, height, and layout that works for your space, and we’ll build a solid wood bed around the way you actually garden.",
     tags: ["Built to order", "Solid wood", "Custom sizes"]
   },
@@ -31,8 +33,8 @@ const products = [
     category: "Storage",
     price: "Quote",
     imageClass: "storage",
-    // Add one photo with `image`, or several with `images`.
     image: "images/tote-storage.png",
+    imageFit: "contain",
     description: "Turn stacks of plastic totes into organized, easy-access storage. Each system is built around your totes and your space, whether it’s going in a garage, basement, workshop, or utility room.",
     tags: ["Custom capacity", "Built to fit", "Easy access"]
   },
@@ -43,9 +45,10 @@ const products = [
     price: "Quote",
     imageClass: "rack",
     images: [
-              "images/bike-rack-blue.png",
-              "images/bike-rack-black.png",
-           ],
+      "images/bike-rack-blue.png",
+      "images/bike-rack-black.png"
+    ],
+    imageFit: "contain",
     description: "A simple, sturdy way to get bikes organized and off the floor pile. Custom-built to fit your bikes, available space, and the number of riders in your household.",
     tags: ["Built to order", "Custom capacity", "Family-friendly"]
   },
@@ -60,6 +63,7 @@ const products = [
       "images/lemonade-stand-front.jpg",
       "images/lemonade-stand-folded.jpg"
     ],
+    imageFit: "cover",
     description: "A handcrafted stand made for lemonade, markets, play, parties, and whatever else kids can dream up. Designed to pack down into two pieces for easier storage and customizable to make it your own.",
     tags: ["Folding", "Custom colors", "Built to order"]
   },
@@ -117,6 +121,10 @@ function getPrimaryImage(product) {
   return getProductImages(product)[0] || "";
 }
 
+function getImageFit(product) {
+  return product.imageFit || "cover";
+}
+
 function renderFilters() {
   filters.innerHTML = categories.map((category, i) => `
     <button class="filter-btn ${i === 0 ? "active" : ""}" data-category="${category}">${category}</button>
@@ -133,15 +141,31 @@ function renderFilters() {
 
 function renderProducts(category = "All") {
   const visible = category === "All" ? products : products.filter(p => p.category === category);
+
   productGrid.innerHTML = visible.map(p => {
     const primaryImage = getPrimaryImage(p);
     const imageCount = getProductImages(p).length;
+    const imageFit = getImageFit(p);
+
     return `
       <article class="product-card reveal visible">
         <button class="product-image-button js-product-open" data-product="${p.id}" aria-label="View ${p.name}">
-          <div class="product-image ${p.imageClass} ${primaryImage ? "photo" : ""}" role="img" aria-label="${p.name}" ${primaryImage ? `style="background-image:url('${primaryImage}')"` : ""}></div>
+          <div class="product-image ${p.imageClass || ""} ${primaryImage ? "photo" : ""}">
+            ${primaryImage ? `
+              <img
+                src="${primaryImage}"
+                alt="${p.name}"
+                class="product-photo product-photo-${imageFit}"
+                loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.classList.add('image-error');"
+              >
+            ` : `
+              <div class="product-image-placeholder"><span>${p.name}</span></div>
+            `}
+          </div>
           ${imageCount > 1 ? `<span class="photo-count">${imageCount} photos</span>` : ""}
         </button>
+
         <div class="product-body">
           <div class="product-top"><h3>${p.name}</h3><span class="price">${p.price}</span></div>
           <p>${p.description}</p>
@@ -184,6 +208,7 @@ function setGalleryImage(index) {
   activeImageIndex = (index + images.length) % images.length;
   productModalImage.src = images[activeImageIndex];
   productModalImage.alt = `${activeProduct.name} photo ${activeImageIndex + 1} of ${images.length}`;
+  productModalImage.style.objectFit = getImageFit(activeProduct);
   productModalThumbs.querySelectorAll("button").forEach((btn, i) => {
     btn.classList.toggle("active", i === activeImageIndex);
     btn.setAttribute("aria-current", i === activeImageIndex ? "true" : "false");
