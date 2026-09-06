@@ -1,7 +1,9 @@
 const siteConfig = {
-  // Optional: paste a Jotform/Formspree/etc URL here later.
-  // If set, the quote form will submit there instead of generating copy.
-  quoteEndpoint: ""
+  // The quote form is built into the website. GitHub Pages cannot receive
+  // form submissions by itself, so direct sending requires a tiny form endpoint.
+  // Form submissions are sent to info@thegreenpergola.com through FormSubmit.
+  // Visitors stay on the Green Pergola website; there is no external form page.
+  quoteEndpoint: "https://formsubmit.co/ajax/info@thegreenpergola.com"
 };
 
 const products = [
@@ -13,6 +15,7 @@ const products = [
     imageClass: "planter",
     image: "images/planter-box.png",
     imageFit: "cover",
+    seoUrl: "planter-boxes-colorado.html",
     description: "Custom-built elevated planter boxes designed to bring your garden up to a more comfortable working height. Built from real wood and tailored to fit your space, style, and growing plans.",
     tags: ["Built to order", "Custom sizes", "Elevated"]
   },
@@ -24,6 +27,7 @@ const products = [
     imageClass: "garden-bed",
     image: "images/raised-garden-bed.png",
     imageFit: "cover",
+    seoUrl: "raised-garden-beds-colorado.html",
     description: "Built-to-order garden beds made for years of growing. Choose the size, height, and layout that works for your space, and we’ll build a solid wood bed around the way you actually garden.",
     tags: ["Built to order", "Solid wood", "Custom sizes"]
   },
@@ -37,6 +41,7 @@ const products = [
     imageFit: "contain",
     cardImageFit: "contain",
     cardImagePosition: "center",
+    seoUrl: "garage-tote-storage-colorado.html",
     description: "Turn stacks of plastic totes into organized, easy-access storage. Each system is built around your totes and your space, whether it’s going in a garage, basement, workshop, or utility room.",
     tags: ["Custom capacity", "Built to fit", "Easy access"]
   },
@@ -77,6 +82,8 @@ const quoteProduct = document.querySelector("#quoteProduct");
 const formStep = document.querySelector("#formStep");
 const successStep = document.querySelector("#successStep");
 const requestPreview = document.querySelector("#requestPreview");
+const formStatus = document.querySelector("#formStatus");
+const quoteSubmit = document.querySelector("#quoteSubmit");
 
 const productModal = document.querySelector("#productModal");
 const productModalImage = document.querySelector("#productModalImage");
@@ -86,6 +93,7 @@ const productModalPrice = document.querySelector("#productModalPrice");
 const productModalDescription = document.querySelector("#productModalDescription");
 const productModalTags = document.querySelector("#productModalTags");
 const productModalQuote = document.querySelector("#productModalQuote");
+const productModalLearn = document.querySelector("#productModalLearn");
 const galleryPrev = document.querySelector("#galleryPrev");
 const galleryNext = document.querySelector("#galleryNext");
 
@@ -215,6 +223,11 @@ function openQuote(productId) {
   formStep.classList.remove("hidden");
   successStep.classList.add("hidden");
   quoteForm.reset();
+  if (formStatus) formStatus.textContent = "";
+  if (quoteSubmit) {
+    quoteSubmit.disabled = false;
+    quoteSubmit.textContent = "Send quote request";
+  }
   populateProductSelect();
   if (product) quoteProduct.value = product.name;
   quoteModal.showModal();
@@ -254,6 +267,14 @@ function openProduct(productId) {
   productModalTags.innerHTML = product.tags.map(t => `<span>${t}</span>`).join("");
   productModalQuote.dataset.product = product.id;
 
+  if (product.seoUrl) {
+    productModalLearn.href = product.seoUrl;
+    productModalLearn.hidden = false;
+  } else {
+    productModalLearn.hidden = true;
+    productModalLearn.removeAttribute("href");
+  }
+
   const hasImages = images.length > 0;
   productModalImage.hidden = !hasImages;
   document.querySelector("#productModalPlaceholder").hidden = hasImages;
@@ -273,6 +294,9 @@ function openProduct(productId) {
   galleryPrev.hidden = !showControls;
   galleryNext.hidden = !showControls;
   productModalThumbs.hidden = !showControls;
+  galleryPrev.style.display = showControls ? "" : "none";
+  galleryNext.style.display = showControls ? "" : "none";
+  productModalThumbs.style.display = showControls ? "" : "none";
 
   productModal.showModal();
   document.body.classList.add("modal-open");
@@ -320,28 +344,55 @@ document.addEventListener("keydown", (e) => {
 
 quoteForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const data = Object.fromEntries(new FormData(quoteForm));
 
-  if (siteConfig.quoteEndpoint) {
-    const res = await fetch(siteConfig.quoteEndpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-    if (!res.ok) return alert("Something went wrong sending the request. Please try again.");
+  if (!siteConfig.quoteEndpoint) {
+    formStatus.textContent = "The form is ready, but the sending endpoint has not been connected yet.";
+    return;
   }
 
-  const request = `GREEN PERGOLA QUOTE REQUEST\n\nName: ${data.name}\nEmail: ${data.email}\nProject: ${data.product}\n\nDetails:\n${data.details || "No extra details yet."}`;
-  requestPreview.textContent = request;
-  formStep.classList.add("hidden");
-  successStep.classList.remove("hidden");
-});
+  const data = Object.fromEntries(new FormData(quoteForm));
 
-document.querySelector("#copyRequest").addEventListener("click", async (e) => {
-  await navigator.clipboard.writeText(requestPreview.textContent);
-  const old = e.currentTarget.textContent;
-  e.currentTarget.textContent = "Copied ✓";
-  setTimeout(() => e.currentTarget.textContent = old, 1600);
+  quoteSubmit.disabled = true;
+  quoteSubmit.textContent = "Sending…";
+  formStatus.textContent = "";
+
+  try {
+    const payload = {
+      ...data,
+      _subject: `New Green Pergola quote request — ${data.product}`,
+      _replyto: data.email,
+      _template: "table",
+      _captcha: "false",
+      _honey: data._honey || "",
+      _url: "https://thegreenpergola.com/"
+    };
+
+    const res = await fetch(siteConfig.quoteEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await res.json().catch(() => ({}));
+
+    if (!res.ok || result.success === "false" || result.success === false) {
+      throw new Error(result.message || `Form submission failed with status ${res.status}`);
+    }
+
+    requestPreview.textContent = `Thanks, ${data.name}. Your request for ${data.product} was sent successfully. We’ll follow up at ${data.email}.`;
+    formStep.classList.add("hidden");
+    successStep.classList.remove("hidden");
+    quoteForm.reset();
+  } catch (err) {
+    console.error(err);
+    formStatus.textContent = "We couldn’t send your request. Please try again in a moment.";
+  } finally {
+    quoteSubmit.disabled = false;
+    quoteSubmit.textContent = "Send quote request";
+  }
 });
 
 document.querySelector("#startOver").addEventListener("click", () => openQuote());
