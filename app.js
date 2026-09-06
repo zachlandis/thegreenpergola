@@ -12,7 +12,7 @@ const products = [
     price: "From $250",
     imageClass: "planter",
     image: "images/planter-box.png",
-    imageFit: "contain",
+    imageFit: "cover",
     description: "Custom-built elevated planter boxes designed to bring your garden up to a more comfortable working height. Built from real wood and tailored to fit your space, style, and growing plans.",
     tags: ["Built to order", "Custom sizes", "Elevated"]
   },
@@ -23,7 +23,7 @@ const products = [
     price: "Quote",
     imageClass: "garden-bed",
     image: "images/raised-garden-bed.png",
-    imageFit: "contain",
+    imageFit: "cover",
     description: "Built-to-order garden beds made for years of growing. Choose the size, height, and layout that works for your space, and we’ll build a solid wood bed around the way you actually garden.",
     tags: ["Built to order", "Solid wood", "Custom sizes"]
   },
@@ -35,6 +35,8 @@ const products = [
     imageClass: "storage",
     image: "images/tote-storage.png",
     imageFit: "contain",
+    cardImageFit: "contain",
+    cardImagePosition: "center",
     description: "Turn stacks of plastic totes into organized, easy-access storage. Each system is built around your totes and your space, whether it’s going in a garage, basement, workshop, or utility room.",
     tags: ["Custom capacity", "Built to fit", "Easy access"]
   },
@@ -49,6 +51,8 @@ const products = [
       "images/bike-rack-black.png"
     ],
     imageFit: "contain",
+    cardImageFit: "contain",
+    cardImagePosition: "center",
     description: "A simple, sturdy way to get bikes organized and off the floor pile. Custom-built to fit your bikes, available space, and the number of riders in your household.",
     tags: ["Built to order", "Custom capacity", "Family-friendly"]
   },
@@ -63,7 +67,7 @@ const products = [
       "images/lemonade-stand-front.jpg",
       "images/lemonade-stand-folded.jpg"
     ],
-    imageFit: "contain",
+    imageFit: "cover",
     description: "A handcrafted stand made for lemonade, markets, play, parties, and whatever else kids can dream up. Designed to pack down into two pieces for easier storage and customizable to make it your own.",
     tags: ["Folding", "Custom colors", "Built to order"]
   },
@@ -125,6 +129,48 @@ function getImageFit(product) {
   return product.imageFit || "cover";
 }
 
+function getCardImageFit(product) {
+  return product.cardImageFit || getImageFit(product);
+}
+
+function getCardImagePosition(product) {
+  return product.cardImagePosition || "center";
+}
+
+function imageCandidates(src) {
+  if (!src) return [];
+  const match = src.match(/^(.*?)(\.[a-zA-Z0-9]+)?$/);
+  const base = match ? match[1] : src;
+  const originalExt = match && match[2] ? match[2].toLowerCase() : "";
+  const exts = [originalExt, ".png", ".jpg", ".jpeg", ".webp"].filter(Boolean);
+  return [...new Set(exts.map(ext => `${base}${ext}`))];
+}
+
+function allProductImageCandidates(product) {
+  return [...new Set(getProductImages(product).flatMap(imageCandidates))];
+}
+
+function handleCardImageError(img, productId) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+
+  const candidates = allProductImageCandidates(product);
+  const tried = (img.dataset.tried || "").split("|").filter(Boolean);
+  if (img.currentSrc) tried.push(img.currentSrc);
+  if (img.src) tried.push(img.src);
+
+  const next = candidates.find(src => !tried.some(t => t.endsWith(src)));
+  img.dataset.tried = [...new Set(tried)].join("|");
+
+  if (next) {
+    img.src = next;
+    return;
+  }
+
+  img.style.display = "none";
+  img.parentElement.classList.add("image-error");
+}
+
 function renderFilters() {
   filters.innerHTML = categories.map((category, i) => `
     <button class="filter-btn ${i === 0 ? "active" : ""}" data-category="${category}">${category}</button>
@@ -155,9 +201,10 @@ function renderProducts(category = "All") {
               <img
                 src="${primaryImage}"
                 alt="${p.name}"
-                class="product-photo product-photo-${imageFit}"
+                class="product-photo"
+                style="object-fit:${getCardImageFit(p)};object-position:${getCardImagePosition(p)};"
                 loading="lazy"
-                onerror="this.style.display='none'; this.parentElement.classList.add('image-error');"
+                onerror="handleCardImageError(this, '${p.id}')"
               >
             ` : `
               <div class="product-image-placeholder"><span>${p.name}</span></div>
