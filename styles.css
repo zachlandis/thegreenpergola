@@ -446,3 +446,7 @@ footer{padding:48px clamp(20px,6vw,90px);display:grid;grid-template-columns:1.2f
 @media(max-width:620px){
   .custom-build-visual{min-height:300px}
 }
+
+
+/* SEO content section */
+.seo-service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:28px}.seo-service-grid article{background:#fff;border:1px solid rgba(23,63,42,.12);border-radius:22px;padding:26px}.seo-service-grid h3{margin:0 0 10px}.seo-service-grid p{color:#687166;line-height:1.65}.seo-service-grid a{color:#174f32;font-weight:700;text-decoration:none}.service-area-copy{margin:26px 0 0;max-width:900px;color:#687166;line-height:1.7}.seo-page{max-width:1100px;margin:0 auto;padding:70px 28px}.seo-page h1{font-family:Fraunces,serif;font-size:clamp(2.8rem,7vw,5.5rem);line-height:.98;margin:.2em 0}.seo-page h2{font-family:Fraunces,serif;font-size:clamp(2rem,4vw,3.2rem)}.seo-page p,.seo-page li{font-size:1.08rem;line-height:1.75;color:#5f695f}.seo-page .lead{font-size:1.3rem;max-width:780px}.seo-page .seo-hero-image{width:100%;max-height:620px;object-fit:cover;border-radius:28px;margin:34px 0}.seo-page .seo-cta{background:#173f2a;color:#fff;border-radius:28px;padding:34px;margin-top:48px}.seo-page .seo-cta p{color:#e8eee8}.seo-page a{color:#174f32}.seo-page .seo-cta a{color:#fff}@media(max-width:760px){.seo-service-grid{grid-template-columns:1fr}}
