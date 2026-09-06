@@ -386,3 +386,63 @@ footer{padding:48px clamp(20px,6vw,90px);display:grid;grid-template-columns:1.2f
     aspect-ratio: 4 / 3;
   }
 }
+
+
+/* =========================================================
+   CUSTOM BUILD IMAGE â€” v10
+========================================================= */
+.custom-build-visual{
+  position:relative;
+  min-height:390px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  overflow:hidden;
+  background:#e7eadf;
+}
+
+.custom-build-visual>img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  z-index:2;
+}
+
+.custom-build-image-placeholder{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:32px;
+  text-align:center;
+  color:var(--forest);
+  background:
+    linear-gradient(rgba(23,63,42,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(23,63,42,.05) 1px,transparent 1px),
+    #fbf8ef;
+  background-size:24px 24px;
+}
+
+.custom-build-image-placeholder strong{
+  font-family:"Fraunces",serif;
+  font-size:28px;
+}
+
+.custom-build-image-placeholder span{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.custom-build-visual:not(.missing-custom-image) .custom-build-image-placeholder{
+  display:none;
+}
+
+@media(max-width:620px){
+  .custom-build-visual{min-height:300px}
+}
