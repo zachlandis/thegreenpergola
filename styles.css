@@ -1383,6 +1383,35 @@ canvas {
   }
 }
 
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-links a {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+  transition: .2s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-2px);
+  border-color: var(--forest);
+  background: var(--cream);
+}
+
+.social-links svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--forest);
+}
+
 /* Touch devices: don't rely on hover effects */
 @media (hover: none) {
   .btn:hover,
