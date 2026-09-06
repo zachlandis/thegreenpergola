@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
   <div class="announcement">Built locally. Made to be used. Designed to look good doing it.</div>
@@ -43,16 +43,29 @@
         </div>
       </div>
 
-      <div class="hero-art reveal" aria-label="Illustrated backyard scene">
-        <div class="sun"></div>
-        <div class="hill hill-a"></div>
-        <div class="hill hill-b"></div>
-        <div class="pergola">
-          <span class="post p1"></span><span class="post p2"></span>
-          <span class="beam b1"></span><span class="beam b2"></span><span class="beam b3"></span><span class="beam b4"></span>
+      <div class="hero-art hero-carousel reveal" aria-label="Green Pergola featured builds">
+        <div class="hero-slide active" data-hero-slide data-label="Planter Boxes">
+          <img src="images/planter-box.png" alt="Green Pergola custom planter box" />
         </div>
-        <div class="bed bed-a"><i></i><i></i><i></i></div>
-        <div class="bed bed-b"><i></i><i></i><i></i><i></i></div>
+        <div class="hero-slide" data-hero-slide data-label="Raised Garden Beds">
+          <img src="images/raised-garden-bed.png" alt="Green Pergola custom raised garden bed" />
+        </div>
+        <div class="hero-slide" data-hero-slide data-label="Garage Tote Storage">
+          <img src="images/tote-storage.png" alt="Green Pergola custom garage tote storage system" />
+        </div>
+
+        <div class="hero-carousel-overlay" aria-hidden="true"></div>
+
+        <div class="hero-carousel-ui">
+          <div class="hero-carousel-kicker">Featured build</div>
+          <div class="hero-carousel-label" id="heroCarouselLabel">Planter Boxes</div>
+          <div class="hero-carousel-dots" aria-label="Choose featured build">
+            <button class="hero-dot active" type="button" data-hero-dot="0" aria-label="Show planter boxes"></button>
+            <button class="hero-dot" type="button" data-hero-dot="1" aria-label="Show raised garden beds"></button>
+            <button class="hero-dot" type="button" data-hero-dot="2" aria-label="Show garage tote storage"></button>
+          </div>
+        </div>
+
         <div class="hero-badge">Hand-built<br><strong>in Colorado</strong></div>
       </div>
     </section>
@@ -177,6 +190,6 @@
     </div>
   </dialog>
 
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>
