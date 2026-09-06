@@ -6,22 +6,46 @@ const siteConfig = {
 
 const products = [
   {
-    id: "raised-bed",
-    name: "Raised Garden Beds",
+    id: "planter-box",
+    name: "Planter Boxes",
     category: "Garden",
     price: "From $250",
-    imageClass: "raised",
-    description: "Solid, handsome beds built to turn a patch of yard into the part you actually want to spend time in.",
-    tags: ["Built to order", "Custom sizes", "No bottom"]
+    imageClass: "planter",
+    image: "images/planter-box.png",
+    description: "Elevated solid-wood planter boxes built to make gardening easier and your outdoor space look better doing it.",
+    tags: ["Built to order", "Custom sizes", "Elevated"]
+  },
+  {
+    id: "raised-garden-bed",
+    name: "Raised Garden Beds",
+    category: "Garden",
+    price: "Quote",
+    imageClass: "garden-bed",
+    image: "images/raised-garden-bed.png",
+    description: "Square cedar garden beds built from three courses of 2×6 lumber — simple, sturdy, and made for years of growing.",
+    tags: ["3 × 2×6 construction", "Cedar", "Custom sizes"]
+  },
+  {
+    id: "tote-storage",
+    name: "Tote Storage Systems",
+    category: "Storage",
+    price: "Quote",
+    imageClass: "storage",
+    // Add your real photo as images/tote-storage.png and uncomment the next line.
+    // image: "images/tote-storage.png",
+    description: "Purpose-built storage racks that turn stacks of plastic totes into clean, accessible organization.",
+    tags: ["Custom capacity", "Garage storage", "Built to fit"]
   },
   {
     id: "bike-rack",
     name: "Wood Bike Rack",
-    category: "Outdoor",
+    category: "Storage",
     price: "Quote",
     imageClass: "rack",
-    description: "A clean way to stop the bikes from becoming permanent driveway décor.",
-    tags: ["Family-friendly", "Multiple sizes", "Outdoor use"]
+    // Add your real photo as images/bike-rack.png and uncomment the next line.
+    // image: "images/bike-rack.png",
+    description: "A clean, solid-wood way to keep bikes upright, organized, and out of the driveway pile.",
+    tags: ["Multiple sizes", "Family-friendly", "Built to order"]
   },
   {
     id: "lemonade-stand",
@@ -81,7 +105,7 @@ function renderProducts(category = "All") {
   const visible = category === "All" ? products : products.filter(p => p.category === category);
   productGrid.innerHTML = visible.map(p => `
     <article class="product-card reveal visible">
-      <div class="product-image ${p.imageClass}" role="img" aria-label="${p.name} illustration"></div>
+      <div class="product-image ${p.imageClass} ${p.image ? "photo" : ""}" role="img" aria-label="${p.name}" ${p.image ? `style="background-image:url('${p.image}')"` : ""}></div>
       <div class="product-body">
         <div class="product-top"><h3>${p.name}</h3><span class="price">${p.price}</span></div>
         <p>${p.description}</p>
