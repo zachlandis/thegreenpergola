@@ -631,3 +631,781 @@ footer{padding:48px clamp(20px,6vw,90px);display:grid;grid-template-columns:1.2f
     margin-top: 12px;
   }
 }
+
+
+/* =========================================================
+   v17 — COMPLETE RESPONSIVE / MOBILE POLISH
+   Drop-in overrides for Green Pergola
+========================================================= */
+
+/* Global overflow protection */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+.brand-logo {
+  width: 46px;
+  height: 46px;
+  display: block;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.footer-brand .brand-logo {
+  width: 42px;
+  height: 42px;
+}
+
+/* Keep current desktop catalog uniform */
+@media (min-width: 901px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .product-card,
+  .product-card:nth-child(1),
+  .product-card:nth-child(5) {
+    grid-column: auto !important;
+  }
+
+  .product-card .product-image,
+  .product-card:nth-child(1) .product-image,
+  .product-card:nth-child(5) .product-image {
+    aspect-ratio: 4 / 3 !important;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+@media (max-width: 900px) {
+  .announcement {
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  .site-header {
+    padding: 13px 18px;
+    gap: 14px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .brand {
+    gap: 9px;
+    min-width: 0;
+  }
+
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-text {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .site-header > .btn {
+    flex: 0 0 auto;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .hero-copy {
+    padding: 68px 24px 50px;
+  }
+
+  .hero h1 {
+    max-width: 760px;
+  }
+
+  .hero-sub {
+    max-width: 680px;
+  }
+
+  .hero-art.hero-carousel {
+    min-height: 500px;
+  }
+
+  .section {
+    padding: 78px 24px;
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .section-heading > p {
+    margin: 18px 0 0;
+    max-width: 680px;
+  }
+
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    margin-right: -24px;
+    padding-right: 24px;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex: 0 0 auto;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px;
+  }
+
+  .product-card,
+  .product-card:nth-child(1),
+  .product-card:nth-child(5) {
+    grid-column: auto !important;
+  }
+
+  .product-card .product-image,
+  .product-card:nth-child(1) .product-image,
+  .product-card:nth-child(5) .product-image {
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  .feature-band {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    padding: 78px 24px;
+  }
+
+  .feature-list {
+    gap: 0;
+  }
+
+  .custom-card {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .story {
+    grid-template-columns: 1fr;
+  }
+
+  .story-number {
+    display: none;
+  }
+
+  footer {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+  }
+
+  .fineprint {
+    text-align: right;
+  }
+
+  /* Product modal becomes stacked */
+  .product-modal {
+    width: min(96vw, 760px);
+    max-height: 94vh;
+    overflow-y: auto;
+    border-radius: 24px;
+  }
+
+  .product-detail-layout {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .product-gallery {
+    padding: 14px;
+  }
+
+  .gallery-stage {
+    min-height: 390px;
+    max-height: 56vh;
+  }
+
+  .product-detail-copy {
+    padding: 30px 22px 34px;
+  }
+
+  .product-modal-close {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+  }
+}
+
+/* =========================================================
+   PHONES
+========================================================= */
+@media (max-width: 620px) {
+  .announcement {
+    font-size: 11px;
+    line-height: 1.35;
+    padding: 8px 12px;
+  }
+
+  .site-header {
+    padding: 10px 14px;
+    min-height: 64px;
+  }
+
+  .site-header > .btn {
+    display: none;
+  }
+
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-text {
+    font-size: 15px;
+  }
+
+  .hero {
+    min-height: 0;
+  }
+
+  .hero-copy {
+    padding: 48px 18px 38px;
+  }
+
+  .eyebrow {
+    margin-bottom: 14px;
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    font-size: clamp(46px, 14vw, 64px);
+    line-height: .94;
+    letter-spacing: -.045em;
+  }
+
+  .hero-sub {
+    margin: 22px 0 26px;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    min-height: 50px;
+  }
+
+  .hero-proof {
+    gap: 8px;
+    margin-top: 26px;
+  }
+
+  .hero-proof span {
+    font-size: 11px;
+    padding: 7px 10px;
+  }
+
+  .hero-art.hero-carousel {
+    min-height: 390px;
+  }
+
+  .hero-slide img {
+    object-position: center;
+  }
+
+  .hero-carousel-ui {
+    left: 18px;
+    right: 18px;
+    bottom: 20px;
+  }
+
+  .hero-carousel-label {
+    font-size: 31px;
+  }
+
+  .hero-carousel-kicker {
+    font-size: 10px;
+  }
+
+  .hero-badge {
+    width: 92px;
+    height: 92px;
+    padding: 12px;
+    right: 14px;
+    top: 14px;
+    bottom: auto;
+    font-size: 10px;
+  }
+
+  .hero-badge strong {
+    font-size: 12px;
+  }
+
+  .marquee {
+    padding: 13px 0;
+  }
+
+  .marquee-track {
+    gap: 20px;
+    font-size: 17px;
+  }
+
+  .section {
+    padding: 64px 16px;
+  }
+
+  .section-heading {
+    margin-bottom: 28px;
+  }
+
+  .section-heading h2,
+  .story h2,
+  .custom-card h2 {
+    font-size: clamp(38px, 11.5vw, 52px);
+    line-height: .98;
+  }
+
+  .section-heading > p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .filters {
+    margin: 20px -16px 26px 0;
+    padding-right: 16px;
+  }
+
+  .filter-btn {
+    padding: 9px 13px;
+    font-size: 12px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  .product-card,
+  .product-card:nth-child(1),
+  .product-card:nth-child(5) {
+    grid-column: 1 / -1 !important;
+    border-radius: 20px;
+  }
+
+  .product-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .product-card .product-image,
+  .product-card:nth-child(1) .product-image,
+  .product-card:nth-child(5) .product-image {
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  .product-image .product-photo {
+    padding: 10px !important;
+  }
+
+  .product-image.planter .product-photo,
+  .product-image.garden-bed .product-photo,
+  .product-image.stand .product-photo {
+    padding: 0 !important;
+  }
+
+  .product-body {
+    padding: 18px;
+  }
+
+  .product-top {
+    gap: 12px;
+  }
+
+  .product-body h3 {
+    font-size: 26px;
+  }
+
+  .price {
+    font-size: 13px;
+  }
+
+  .product-body p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .product-meta {
+    gap: 6px;
+  }
+
+  .product-meta span {
+    font-size: 10px;
+  }
+
+  .product-actions {
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .product-link {
+    font-size: 13px;
+  }
+
+  .feature-band {
+    padding: 64px 16px;
+    gap: 36px;
+  }
+
+  .feature-intro h2 {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  .feature-intro > p:last-child {
+    font-size: 15px;
+  }
+
+  .feature-card {
+    grid-template-columns: 38px 1fr;
+    column-gap: 12px;
+    padding: 24px 0;
+  }
+
+  .feature-card h3 {
+    font-size: 21px;
+  }
+
+  .feature-card p {
+    font-size: 14px;
+  }
+
+  .custom-section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .custom-card {
+    padding: 26px 18px;
+    border-radius: 24px;
+    gap: 28px;
+  }
+
+  .custom-card p:not(.eyebrow) {
+    font-size: 16px;
+  }
+
+  .custom-card .btn {
+    width: 100%;
+  }
+
+  .custom-build-visual {
+    min-height: 260px;
+    border-radius: 18px;
+  }
+
+  .story {
+    gap: 0;
+  }
+
+  .story-copy p:not(.eyebrow) {
+    font-size: 17px;
+  }
+
+  .cta {
+    padding: 68px 16px;
+  }
+
+  .cta h2 {
+    font-size: clamp(58px, 18vw, 82px);
+  }
+
+  .cta .btn {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 36px 16px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+  }
+
+  .fineprint {
+    text-align: left;
+  }
+
+  /* Product detail modal */
+  .product-modal {
+    width: calc(100vw - 16px);
+    max-height: calc(100dvh - 16px);
+    border-radius: 20px;
+  }
+
+  .product-detail-layout {
+    display: block;
+  }
+
+  .product-gallery {
+    padding: 8px;
+  }
+
+  .gallery-stage {
+    min-height: 280px;
+    height: min(46vh, 360px);
+    border-radius: 14px;
+  }
+
+  .gallery-stage > img {
+    object-fit: contain;
+  }
+
+  .gallery-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 28px;
+  }
+
+  .gallery-prev {
+    left: 8px;
+  }
+
+  .gallery-next {
+    right: 8px;
+  }
+
+  .gallery-thumbs {
+    gap: 8px;
+  }
+
+  .gallery-thumb {
+    flex-basis: 66px;
+    height: 54px;
+  }
+
+  .product-detail-copy {
+    padding: 24px 16px 26px;
+  }
+
+  .product-detail-heading {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .product-detail-heading h2 {
+    font-size: clamp(36px, 11vw, 48px);
+  }
+
+  .product-detail-price {
+    display: block;
+    margin-top: 8px;
+    padding-top: 0;
+  }
+
+  .product-detail-description {
+    font-size: 15px;
+  }
+
+  .custom-note {
+    font-size: 12px;
+  }
+
+  /* Quote form modal */
+  .quote-modal-layer {
+    padding: 8px;
+    align-items: start;
+  }
+
+  .quote-modal-layer .quote-modal {
+    width: 100%;
+    max-height: calc(100dvh - 16px);
+    margin-top: 8px;
+    border-radius: 20px;
+  }
+
+  .modal-step {
+    padding: 28px 16px 24px;
+  }
+
+  .modal-step h2 {
+    font-size: 38px;
+    padding-right: 34px;
+  }
+
+  .modal-close {
+    right: 12px;
+    top: 10px;
+  }
+
+  .quote-modal form {
+    gap: 14px;
+  }
+
+  .form-grid-two {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .quote-modal input,
+  .quote-modal textarea,
+  .quote-modal select {
+    /* Prevent iOS Safari zooming inputs */
+    font-size: 16px;
+    padding: 14px 13px;
+    border-radius: 11px;
+  }
+
+  .quote-modal textarea {
+    min-height: 120px;
+  }
+
+  .captcha-wrap {
+    min-height: 78px;
+    width: 100%;
+    overflow: visible;
+  }
+
+  /* hCaptcha is 303px wide by default. Keep it inside narrow phones. */
+  .captcha-wrap > div,
+  .captcha-wrap iframe {
+    max-width: 100% !important;
+  }
+
+  #quoteSubmit {
+    min-height: 50px;
+  }
+
+  .seo-support-links {
+    margin: -2px auto 44px;
+    padding: 0 16px;
+    justify-content: flex-start;
+    font-size: .82rem;
+  }
+
+  .seo-page {
+    padding: 48px 16px;
+  }
+
+  .seo-page h1 {
+    font-size: clamp(42px, 13vw, 62px);
+  }
+
+  .seo-page .lead {
+    font-size: 1.1rem;
+  }
+
+  .seo-page .seo-hero-image {
+    margin: 24px 0;
+    border-radius: 18px;
+  }
+
+  .seo-page .seo-cta {
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+}
+
+/* =========================================================
+   EXTRA-SMALL PHONES
+========================================================= */
+@media (max-width: 380px) {
+  .brand-text {
+    font-size: 14px;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-copy {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 13vw, 52px);
+  }
+
+  .section {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .product-body {
+    padding: 16px;
+  }
+
+  .product-body h3 {
+    font-size: 24px;
+  }
+
+  .gallery-stage {
+    min-height: 240px;
+    height: 40vh;
+  }
+
+  .modal-step {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+/* Touch devices: don't rely on hover effects */
+@media (hover: none) {
+  .btn:hover,
+  .product-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* Safe-area support for modern phones */
+@supports (padding: max(0px)) {
+  @media (max-width: 620px) {
+    .site-header {
+      padding-left: max(14px, env(safe-area-inset-left));
+      padding-right: max(14px, env(safe-area-inset-right));
+    }
+
+    .quote-modal-layer {
+      padding-bottom: max(8px, env(safe-area-inset-bottom));
+    }
+
+    footer {
+      padding-bottom: max(36px, env(safe-area-inset-bottom));
+    }
+  }
+}
