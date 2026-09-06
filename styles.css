@@ -324,3 +324,65 @@ footer{padding:48px clamp(20px,6vw,90px);display:grid;grid-template-columns:1.2f
 @media(prefers-reduced-motion:reduce){
   .hero-slide{transition:none;transform:none}
 }
+
+/* =========================================================
+   UNIFORM PRODUCT GRID â€” v9
+========================================================= */
+@media (min-width: 901px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .product-card,
+  .product-card:nth-child(1),
+  .product-card:nth-child(5) {
+    grid-column: auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .product-card .product-image,
+  .product-card:nth-child(1) .product-image,
+  .product-card:nth-child(5) .product-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .product-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .product-meta {
+    margin-top: auto;
+  }
+
+  .product-actions {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 621px) and (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .product-card,
+  .product-card:nth-child(1),
+  .product-card:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .product-card .product-image,
+  .product-card:nth-child(1) .product-image,
+  .product-card:nth-child(5) .product-image {
+    aspect-ratio: 4 / 3;
+  }
+}
