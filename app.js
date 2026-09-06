@@ -66,15 +66,6 @@ const products = [
     imageFit: "cover",
     description: "A handcrafted stand made for lemonade, markets, play, parties, and whatever else kids can dream up. Designed to pack down into two pieces for easier storage and customizable to make it your own.",
     tags: ["Folding", "Custom colors", "Built to order"]
-  },
-  {
-    id: "custom-build",
-    name: "Custom Backyard Build",
-    category: "Custom",
-    price: "Let’s talk",
-    imageClass: "custom",
-    description: "Have an idea you don’t see here? That’s kind of the point. Tell us what you need, show us the space, or send us the idea you’ve been saving—we’ll figure out how to build it.",
-    tags: ["One-off", "Made for your space", "Your idea"]
   }
 ];
 
