@@ -63,7 +63,7 @@ const products = [
     price: "Quote",
     imageClass: "stand",
     image: "images/lemonade-stand-main.png",
-    imageFit: "cover",
+    imageFit: "contain",
     description: "A handcrafted stand made for lemonade, markets, play, parties, and whatever else kids can dream up. Designed to pack down into two pieces for easier storage and customizable to make it your own.",
     tags: ["Folding", "Custom colors", "Built to order"]
   }
