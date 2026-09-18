@@ -1,11 +1,825 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Free Raised Planter Box Plans | Green Pergola</title><meta name="description" content="Get free raised planter box build plans from Green Pergola."><link rel="canonical" href="https://thegreenpergola.com/free-raised-planter-box-plans.html"><link rel="icon" href="/images/favicon.png"><link rel="stylesheet" href="styles.css?v=19"></head><body class="plans-page">
-<div class="announcement">Free plans. No nonsense. Build something.</div>
-<header class="site-header"><a class="brand" href="index.html"><img class="brand-logo" src="images/favicon.png" alt=""><span class="brand-text">Green Pergola</span></a><nav class="desktop-nav"><a href="index.html#shop">Shop</a><a href="index.html#custom">Custom Builds</a><a href="index.html#about">About</a></nav><a class="btn btn-small" href="#get-plans">Get the plans</a></header>
-<main><section class="plans-hero"><div><p class="eyebrow">FREE BUILD PLANS</p><h1>Build your own raised planter box.</h1><p class="hero-sub">Get the Green Pergola guide with materials, cut planning and step-by-step construction.</p><div class="hero-actions"><a class="btn" href="#get-plans">Get the free plans ↓</a></div></div><div class="plans-hero-image"><img src="images/planter-box.png" alt="Green Pergola raised planter box"></div></section>
-<div class="plans-shell"><section class="plans-card"><p class="eyebrow">WHAT'S INSIDE</p><h2>Everything you need to get from lumber to planter.</h2><p>The guide is designed so you can adapt the planter to your own space.</p><div class="plans-preview-grid"><div><strong>Materials</strong><span>What to buy</span></div><div><strong>Cut planning</strong><span>How to size it</span></div><div><strong>Assembly</strong><span>Step by step</span></div><div><strong>Finishing</strong><span>Ready for soil</span></div></div></section>
-<section class="plans-gate" id="get-plans"><div><p class="eyebrow">GET THE FREE GUIDE</p><h2>Send me the plans.</h2><p>Enter your first name and email. The complete guide unlocks immediately.</p></div><div><form class="plans-gate-form" id="plansLeadForm"><input type="checkbox" name="botcheck" class="form-honey" tabindex="-1"><label>First name<input name="name" autocomplete="given-name" required placeholder="Your first name"></label><label>Email<input type="email" name="email" autocomplete="email" required placeholder="you@example.com"></label><input type="hidden" name="subject" value="Green Pergola — Free Plan Download"><input type="hidden" name="message" value="Requested the free raised planter box plans."><button class="btn" id="plansLeadSubmit">Send me the free plans →</button><p class="plans-status" id="plansLeadStatus"></p><p class="plans-privacy">By submitting, you’re asking Green Pergola to send you the plans and occasional Green Pergola updates. Unsubscribe anytime.</p></form><div class="plans-success" id="plansLeadSuccess" hidden><p class="eyebrow">YOU'RE IN</p><h3>Here are your plans.</h3><a class="btn" href="#full-plans">View the plans ↓</a></div></div></section>
-<div class="plans-unlocked" id="full-plans" hidden><section class="plans-card"><p class="eyebrow">01 — MATERIALS</p><h2>What you'll need</h2><ul><li>Exterior-suitable lumber for the planter walls</li><li>Four wood corner supports</li><li>Exterior/deck screws appropriate for your lumber</li><li>Landscape fabric or planter liner, if desired</li><li>Exterior finish or stain, if desired</li><li>Raised-bed soil and plants</li></ul></section>
-<section class="plans-card"><p class="eyebrow">02 — CUT PLANNING</p><h2>Build the cut list from your finished size.</h2><div class="plan-table-wrap"><table class="plan-table"><tr><th>Part</th><th>Quantity</th><th>Size</th></tr><tr><td>Long wall boards</td><td>Based on height</td><td>Finished planter length</td></tr><tr><td>End wall boards</td><td>Based on height</td><td>Finished width, adjusted for joint layout</td></tr><tr><td>Corner supports</td><td>4</td><td>Finished wall height</td></tr><tr><td>Optional top trim</td><td>As needed</td><td>Measure after assembly</td></tr></table></div><p class="plan-note"><strong>Measure twice:</strong> dry-fit one layer before batch-cutting every piece.</p></section>
-<section class="plans-card"><p class="eyebrow">03 — ASSEMBLY</p><h2>Put it together.</h2><ol><li>Choose and mark the finished footprint and height.</li><li>Cut four identical corner supports.</li><li>Cut and dry-fit the first wall layer.</li><li>Clamp and fasten the long sides to the corner supports.</li><li>Attach the ends and check the box for square.</li><li>Add the remaining wall boards while keeping corners aligned.</li><li>Add optional top trim after measuring the assembled box.</li><li>Sand sharp edges and splinters.</li><li>Apply your chosen exterior finish, let it cure, then fill and plant.</li></ol><button class="btn" type="button" onclick="window.print()">Print / save guide</button></section></div></div></main>
-<footer><a class="brand footer-brand" href="index.html"><img class="brand-logo" src="images/favicon.png" alt=""><span class="brand-text">Green Pergola</span></a><p>Built locally. Made for outside.</p><p class="fineprint">© <span id="year"></span> Green Pergola</p></footer>
-<script>document.getElementById("year").textContent=new Date().getFullYear();const KEY="193f2c54-a5e3-4716-a194-4d6ffacd7c14",f=document.getElementById("plansLeadForm"),s=document.getElementById("plansLeadSubmit"),m=document.getElementById("plansLeadStatus"),ok=document.getElementById("plansLeadSuccess"),plans=document.getElementById("full-plans");f.addEventListener("submit",async e=>{e.preventDefault();if(f.botcheck.checked)return;if(KEY==="YOUR_EXISTING_WEB3FORMS_ACCESS_KEY"){m.textContent="Site setup incomplete: add the Web3Forms access key.";m.classList.add("error");return}s.disabled=true;s.textContent="Sending…";m.textContent="";let d=new FormData(f);d.append("access_key",KEY);try{let r=await fetch("https://api.web3forms.com/submit",{method:"POST",body:d}),j=await r.json();if(!r.ok||!j.success)throw Error();f.hidden=true;ok.hidden=false;plans.hidden=false;localStorage.setItem("gpPlansUnlocked","1")}catch(x){m.textContent="Couldn’t send that yet. Please try again.";m.classList.add("error")}finally{s.disabled=false;s.textContent="Send me the free plans →"}});if(localStorage.getItem("gpPlansUnlocked")==="1"){f.hidden=true;ok.hidden=false;plans.hidden=false}</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Free Raised Planter Box Plans | Green Pergola</title>
+  <meta name="description" content="Get free raised planter box build plans from Green Pergola.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#173f2a">
+
+  <link rel="canonical" href="https://thegreenpergola.com/free-raised-planter-box-plans.html">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Green Pergola">
+  <meta property="og:title" content="Free Raised Planter Box Plans | Green Pergola">
+  <meta property="og:description" content="Build your own raised planter box with a free Green Pergola build guide.">
+  <meta property="og:url" content="https://thegreenpergola.com/free-raised-planter-box-plans.html">
+  <meta property="og:image" content="https://thegreenpergola.com/images/green-pergola-share.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Raised Planter Box Plans | Green Pergola">
+  <meta name="twitter:description" content="Build your own raised planter box with a free Green Pergola build guide.">
+  <meta name="twitter:image" content="https://thegreenpergola.com/images/green-pergola-share.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css?v=19">
+</head>
+
+<body class="plans-page">
+
+  <div class="announcement">
+    Free plans. No nonsense. Build something.
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Green Pergola home">
+      <img
+        class="brand-logo"
+        src="images/favicon.png"
+        alt=""
+        aria-hidden="true"
+      >
+      <span class="brand-text">Green Pergola</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="index.html#shop">Shop</a>
+      <a href="index.html#why">Why Green Pergola</a>
+      <a href="index.html#custom">Custom Builds</a>
+      <a href="index.html#about">About</a>
+    </nav>
+
+    <a class="btn btn-small" href="#get-plans">
+      Get the plans
+    </a>
+  </header>
+
+  <main>
+
+    <section class="plans-hero">
+
+      <div>
+        <p class="eyebrow">FREE BUILD PLANS</p>
+
+        <h1>Build your own raised planter box.</h1>
+
+        <p class="hero-sub">
+          Get the Green Pergola guide with materials, cut planning,
+          and step-by-step construction.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="#get-plans">
+            Get the free plans ↓
+          </a>
+
+          <a class="btn btn-ghost" href="index.html#shop">
+            See what I build
+          </a>
+        </div>
+      </div>
+
+      <div class="plans-hero-image">
+        <img
+          src="images/planter-box.png"
+          alt="Green Pergola raised planter box"
+        >
+      </div>
+
+    </section>
+
+
+    <div class="plans-shell">
+
+      <section class="plans-card">
+
+        <p class="eyebrow">WHAT'S INSIDE</p>
+
+        <h2>
+          Everything you need to get from lumber to planter.
+        </h2>
+
+        <p>
+          The guide is designed so you can adapt the planter
+          to your own space.
+        </p>
+
+        <div class="plans-preview-grid">
+
+          <div>
+            <strong>Materials</strong>
+            <span>What to buy</span>
+          </div>
+
+          <div>
+            <strong>Cut planning</strong>
+            <span>How to size it</span>
+          </div>
+
+          <div>
+            <strong>Assembly</strong>
+            <span>Step by step</span>
+          </div>
+
+          <div>
+            <strong>Finishing</strong>
+            <span>Ready for soil</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <section
+        class="plans-gate"
+        id="get-plans"
+      >
+
+        <div>
+
+          <p class="eyebrow">
+            GET THE FREE GUIDE
+          </p>
+
+          <h2>
+            Send me the plans.
+          </h2>
+
+          <p>
+            Enter your first name and email.
+            The complete guide unlocks immediately
+            after the request goes through.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <form
+            class="plans-gate-form"
+            id="plansLeadForm"
+          >
+
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="form-honey"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            >
+
+
+            <label>
+              First name
+
+              <input
+                name="name"
+                autocomplete="given-name"
+                required
+                placeholder="Your first name"
+              >
+            </label>
+
+
+            <label>
+              Email
+
+              <input
+                type="email"
+                name="email"
+                autocomplete="email"
+                required
+                placeholder="you@example.com"
+              >
+            </label>
+
+
+            <div class="captcha-wrap">
+              <div
+                class="h-captcha"
+                data-captcha="true"
+              ></div>
+            </div>
+
+
+            <button
+              class="btn"
+              id="plansLeadSubmit"
+              type="submit"
+            >
+              Send me the free plans →
+            </button>
+
+
+            <p
+              class="plans-status"
+              id="plansLeadStatus"
+              role="status"
+              aria-live="polite"
+            ></p>
+
+
+            <p class="plans-privacy">
+              By submitting, you’re asking Green Pergola
+              to send you the plans and occasional
+              Green Pergola updates. Unsubscribe anytime.
+            </p>
+
+          </form>
+
+
+          <div
+            class="plans-success"
+            id="plansLeadSuccess"
+            hidden
+          >
+
+            <p class="eyebrow">
+              YOU'RE IN
+            </p>
+
+            <h3>
+              Here are your plans.
+            </h3>
+
+            <p>
+              The full guide is unlocked below.
+            </p>
+
+            <a
+              class="btn"
+              href="#full-plans"
+            >
+              View the plans ↓
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <div
+        class="plans-unlocked"
+        id="full-plans"
+        hidden
+      >
+
+        <section class="plans-card">
+
+          <p class="eyebrow">
+            01 — MATERIALS
+          </p>
+
+          <h2>
+            What you'll need
+          </h2>
+
+          <ul>
+            <li>
+              Exterior-suitable lumber for the planter walls
+            </li>
+
+            <li>
+              Four wood corner supports
+            </li>
+
+            <li>
+              Exterior/deck screws appropriate for your lumber
+            </li>
+
+            <li>
+              Landscape fabric or planter liner, if desired
+            </li>
+
+            <li>
+              Exterior finish or stain, if desired
+            </li>
+
+            <li>
+              Raised-bed soil and plants
+            </li>
+          </ul>
+
+        </section>
+
+
+        <section class="plans-card">
+
+          <p class="eyebrow">
+            02 — CUT PLANNING
+          </p>
+
+          <h2>
+            Build the cut list from your finished size.
+          </h2>
+
+          <div class="plan-table-wrap">
+
+            <table class="plan-table">
+
+              <thead>
+                <tr>
+                  <th>Part</th>
+                  <th>Quantity</th>
+                  <th>Size</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td>Long wall boards</td>
+                  <td>Based on height</td>
+                  <td>Finished planter length</td>
+                </tr>
+
+                <tr>
+                  <td>End wall boards</td>
+                  <td>Based on height</td>
+                  <td>
+                    Finished width, adjusted for joint layout
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Corner supports</td>
+                  <td>4</td>
+                  <td>Finished wall height</td>
+                </tr>
+
+                <tr>
+                  <td>Optional top trim</td>
+                  <td>As needed</td>
+                  <td>Measure after assembly</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+          <p class="plan-note">
+            <strong>Measure twice:</strong>
+            dry-fit one layer before batch-cutting every piece.
+          </p>
+
+        </section>
+
+
+        <section class="plans-card">
+
+          <p class="eyebrow">
+            03 — ASSEMBLY
+          </p>
+
+          <h2>
+            Put it together.
+          </h2>
+
+          <ol>
+
+            <li>
+              Choose and mark the finished footprint and height.
+            </li>
+
+            <li>
+              Cut four identical corner supports.
+            </li>
+
+            <li>
+              Cut and dry-fit the first wall layer.
+            </li>
+
+            <li>
+              Clamp and fasten the long sides
+              to the corner supports.
+            </li>
+
+            <li>
+              Attach the ends and check the box for square.
+            </li>
+
+            <li>
+              Add the remaining wall boards
+              while keeping corners aligned.
+            </li>
+
+            <li>
+              Add optional top trim after measuring
+              the assembled box.
+            </li>
+
+            <li>
+              Sand sharp edges and splinters.
+            </li>
+
+            <li>
+              Apply your chosen exterior finish,
+              let it cure, then fill and plant.
+            </li>
+
+          </ol>
+
+
+          <button
+            class="btn"
+            type="button"
+            onclick="window.print()"
+          >
+            Print / save guide
+          </button>
+
+        </section>
+
+
+        <section class="plans-card">
+
+          <p class="eyebrow">
+            DON'T WANT TO BUILD IT?
+          </p>
+
+          <h2>
+            I build these too.
+          </h2>
+
+          <p>
+            If DIY sounded better before you got to the saw part,
+            Green Pergola can build one for your space.
+          </p>
+
+          <a
+            class="btn"
+            href="index.html#shop"
+          >
+            See Green Pergola builds →
+          </a>
+
+        </section>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <footer>
+
+    <a
+      class="brand footer-brand"
+      href="index.html"
+      aria-label="Green Pergola home"
+    >
+
+      <img
+        class="brand-logo"
+        src="images/favicon.png"
+        alt=""
+        aria-hidden="true"
+      >
+
+      <span class="brand-text">
+        Green Pergola
+      </span>
+
+    </a>
+
+
+    <p>
+      Built locally. Made for outside.
+    </p>
+
+
+    <div
+      class="footer-links"
+      aria-label="Footer navigation"
+    >
+
+      <a href="index.html#shop">
+        Shop
+      </a>
+
+      <a href="index.html#custom">
+        Custom
+      </a>
+
+      <a href="index.html#about">
+        About
+      </a>
+
+    </div>
+
+
+    <div
+      class="social-links"
+      aria-label="Green Pergola social media"
+    >
+
+      <a
+        href="https://www.facebook.com/thegreenpergola/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Green Pergola on Facebook"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M13.5 22v-9h3l.5-3h-3.5V8.1c0-.9.3-1.6 1.7-1.6H17V3.8c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V10H7v3h3v9h3.5z"/>
+        </svg>
+      </a>
+
+
+      <a
+        href="https://www.instagram.com/green_pergola"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Green Pergola on Instagram"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm5.5-8.2a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2z"/>
+        </svg>
+      </a>
+
+
+      <a
+        href="https://www.tiktok.com/@green_pergola"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Green Pergola on TikTok"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15.5 3c.5 1.8 1.6 3 3.5 3.5v3a8.2 8.2 0 0 1-3.5-1v6.1a6.1 6.1 0 1 1-5.3-6v3.2a3 3 0 1 0 2.2 2.8V3h3.1z"/>
+        </svg>
+      </a>
+
+
+      <a
+        href="https://youtube.com/@the_green_pergola"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Green Pergola on YouTube"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10 15.3V8.7l5.7 3.3L10 15.3z"/>
+        </svg>
+      </a>
+
+    </div>
+
+
+    <p class="fineprint">
+      © <span id="year"></span> Green Pergola
+    </p>
+
+  </footer>
+
+
+  <!-- Web3Forms hCaptcha -->
+  <script
+    src="https://web3forms.com/client/script.js"
+    async
+    defer
+  ></script>
+
+
+  <script>
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    const KEY =
+      "193f2c54-a5e3-4716-a194-4d6ffacd7c14";
+
+
+    const f =
+      document.getElementById("plansLeadForm");
+
+    const s =
+      document.getElementById("plansLeadSubmit");
+
+    const m =
+      document.getElementById("plansLeadStatus");
+
+    const ok =
+      document.getElementById("plansLeadSuccess");
+
+    const plans =
+      document.getElementById("full-plans");
+
+
+    function unlockPlans() {
+
+      f.hidden = true;
+
+      ok.hidden = false;
+
+      plans.hidden = false;
+
+      localStorage.setItem(
+        "gpPlansUnlocked",
+        "1"
+      );
+    }
+
+
+    if (
+      localStorage.getItem(
+        "gpPlansUnlocked"
+      ) === "1"
+    ) {
+
+      unlockPlans();
+    }
+
+
+    f.addEventListener(
+      "submit",
+      async (e) => {
+
+        e.preventDefault();
+
+
+        if (f.botcheck.checked) {
+          return;
+        }
+
+
+        m.classList.remove("error");
+
+        m.textContent = "";
+
+
+        const formData =
+          new FormData(f);
+
+
+        const captchaToken =
+          formData.get(
+            "h-captcha-response"
+          );
+
+
+        if (!captchaToken) {
+
+          m.textContent =
+            "Please complete the security check first.";
+
+          m.classList.add("error");
+
+          return;
+        }
+
+
+        s.disabled = true;
+
+        s.textContent =
+          "Sending…";
+
+
+        const payload = {
+
+          access_key: KEY,
+
+          subject:
+            "Green Pergola — Free Plan Download",
+
+          from_name:
+            "Green Pergola Website",
+
+          name:
+            formData.get("name"),
+
+          email:
+            formData.get("email"),
+
+          message:
+            "Requested the free raised planter box plans.",
+
+          "h-captcha-response":
+            captchaToken
+        };
+
+
+        try {
+
+          const response =
+            await fetch(
+              "https://api.web3forms.com/submit",
+              {
+                method: "POST",
+
+                headers: {
+                  "Content-Type":
+                    "application/json",
+
+                  "Accept":
+                    "application/json"
+                },
+
+                body:
+                  JSON.stringify(
+                    payload
+                  )
+              }
+            );
+
+
+          const result =
+            await response
+              .json()
+              .catch(
+                () => ({})
+              );
+
+
+          if (
+            !response.ok ||
+            result.success !== true
+          ) {
+
+            console.error(
+              "Web3Forms response:",
+              result
+            );
+
+            throw new Error(
+              result.message ||
+              "Submission failed"
+            );
+          }
+
+
+          unlockPlans();
+
+
+          if (
+            window.hcaptcha &&
+            typeof window.hcaptcha.reset ===
+              "function"
+          ) {
+
+            window.hcaptcha.reset();
+          }
+
+
+          setTimeout(
+            () => {
+
+              plans.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+              });
+
+            },
+            150
+          );
+
+
+        } catch (err) {
+
+          console.error(
+            "Green Pergola plans form error:",
+            err
+          );
+
+
+          m.textContent =
+            err?.message &&
+            err.message !==
+              "Submission failed"
+              ? err.message
+              : "Couldn’t send that yet. Please try again.";
+
+
+          m.classList.add(
+            "error"
+          );
+
+
+        } finally {
+
+          s.disabled = false;
+
+          s.textContent =
+            "Send me the free plans →";
+        }
+      }
+    );
+
+  </script>
+
+</body>
+</html>
